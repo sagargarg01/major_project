@@ -87,3 +87,9 @@ module.exports.createSession = function(req,res){
     }
 });
 }
+
+module.exports.signOut = function(req,res){
+    
+        res.redirect('/users/sign-in');  
+
+}
