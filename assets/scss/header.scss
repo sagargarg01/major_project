@@ -1,0 +1,37 @@
+header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: #1286F8;
+    color: white;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .head{
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 10px;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin-top: 16px;
+        margin-right: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .sign-out{
+        margin-left: 10px;
+    }
+
+    .sign-up{
+        margin-left: 10px;
+    }
+
+}

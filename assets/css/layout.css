@@ -1,4 +1,7 @@
-body{
-    margin: 0;
-    /* text-align: center; */
-}
+body {
+  text-transform: capitalize;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  /* text-align: center; */ }
+  body #layout-main {
+    height: 100%; }
