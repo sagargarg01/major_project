@@ -60,11 +60,13 @@ module.exports.create = function(req,res){
             User.create(req.body,function(err,user){
                 if(err){console.log('error in creating user while signing up');return;}
 
+                req.flash('success', 'User Created Successfully')
                 return res.redirect('/users/sign-in');
             });
         }
 
         else{
+            req.flash('error', 'User Already Exists');
             return res.redirect('back'); 
         }
 

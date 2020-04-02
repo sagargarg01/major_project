@@ -9,7 +9,7 @@
             let post = await Post.findById(req.body.post);
 
             if(post){
-                Comment.create({
+             let comment = await Comment.create({
                     content: req.body.content,
                     post: req.body.post,
                     user: req.user._id
@@ -18,10 +18,11 @@
                 post.comments.push(comment);
                 post.save(); 
     
-                res.redirect('/');
+                req.flash('success', 'comment created Successfully');
+                res.redirect('back');
             }
         }catch(err){
-            console.log('Error', err);
+            req.flash('error', err);
             return;
         }
 
@@ -35,8 +36,6 @@
        
         let post = await Post.findById(comment.post);
 
-         console.log(post.user, req.user.id);
-
         if(comment.user == req.user.id  || req.user.id == post.user){
                     
             let postId = comment.post;
@@ -45,15 +44,17 @@
             let post = await Post.findByIdAndUpdate(postId ,{ $pull:
             {comments: req.params.id} });
 
+            req.flash('sucess','comment deleted successfully');
             return res.redirect('back');
         }else{
+            req.flash('error','Not Authorized to delete');
             return res.redirect('back');
         }
         
 
         }catch(err){
-            console.log('Error', err);
-            return;
+           req.flash('error', err);
+           return res.redirect('back');
         }
 
     }
