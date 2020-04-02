@@ -44,7 +44,7 @@
             let post = await Post.findByIdAndUpdate(postId ,{ $pull:
             {comments: req.params.id} });
 
-            req.flash('sucess','comment deleted successfully');
+            req.flash('success','comment deleted successfully');
             return res.redirect('back');
         }else{
             req.flash('error','Not Authorized to delete');

@@ -9,7 +9,7 @@ module.exports.create = async function(req, res){
             user: req.user._id
         });
     
-        req.flash('succes','Post created successfully');
+        req.flash('success','Post created successfully');
         return res.redirect('back');
 
     }catch(err){
@@ -30,7 +30,7 @@ module.exports.destroy = async function(req, res){
     
           await Comment.deleteMany({post: req.params.id});
 
-          req.flash('succes','Post deleted successfully');
+          req.flash('success','Post deleted successfully');
           return res.redirect('back');
     
         }else{
