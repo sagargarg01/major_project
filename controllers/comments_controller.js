@@ -24,9 +24,15 @@ module.exports.create = function(req, res){
 
 module.exports.destroy = function(req, res){
     Comment.findById(req.params.id, function(err,comment){
-        if(comment.user == req.user.id){
-            
-            let postId = comment.post;
+        let usernameid;
+        let postId = comment.post;
+        Post.findById(postId,function(err,post){
+            usernameid = post.user;
+            console.log(post.user, req.user.id);
+        });
+
+        // console.log(usernameid);
+        if(comment.user == req.user.id || req.user.id == usernameid){
 
             comment.remove();
 
