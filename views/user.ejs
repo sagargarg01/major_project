@@ -1,11 +1,8 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 
-<h1>
-    Codial / Profile
-</h1>
- 
+<img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
 
-    <% if(user.id == profile_users.id){ %>
+ <% if(user.id == profile_users.id){ %>
         <!-- if user matches then show the form -->
         <form action="/users/update/<%= profile_users.id %>" method="POST" enctype="multipart/form-data">
             <input type="text" name="name" placeholder="Your Name" value="<%= profile_users.name %>" required>
