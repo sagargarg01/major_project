@@ -4,10 +4,10 @@
     </div>
 
     <% if(locals.user){ %>
-
+        
     <div class="head-container">
         <div class="text">
-            <a href="/users/profile">
+            <a href="/users/profile/<%= locals.user.id %>">
                 <%= user.name %>
             </a>
         </div>
