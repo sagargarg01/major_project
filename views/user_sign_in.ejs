@@ -1,7 +1,35 @@
-<h1>sign in</h1>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Email Or Username" required>
-    <input type="password" name="password" placeholder="Enter Password" required>
-    <input type="submit" value="Sign-In">
-</form>
+<link rel="stylesheet" href="/css/sign_in.css">
+
+<div class="container-signIn login-container">
+    <div class="row">
+        <div class="col-md-6 login-form">
+
+            <h1>Sign In</h1>
+
+            <form action="/users/create-session" method="POST">
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="Email Or Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnsubmit" value="Sign-In">
+                </div>
+                <div class="form-group">
+                    <a href="#" class="btnForgetPwd">Forget Password</a>
+                </div>
+                <div class="logo-container">
+                    <div class="login-logo">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

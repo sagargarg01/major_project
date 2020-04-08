@@ -3,30 +3,30 @@
         Codeial
     </div>
 
-        <% if(locals.user){ %>
+    <% if(locals.user){ %>
 
-            <div class="container">
-            <div class="username">
-                <a href="/users/profile">
+    <div class="head-container">
+        <div class="text">
+            <a href="/users/profile">
                 <%= user.name %>
-                </a>
-            </div>
-           
-            <div class="sign-out">
-                <a href="/users/sign-out">Sign Out</a>
-            </div>
-            </div>
+            </a>
+        </div>
 
-           <% }else{ %>
-            <div class="container">
-            <div class="sign-in">
-                <a href="/users/sign-in">Sign In</a>
-            </div>
-            <div class="sign-up">
-                <a href="/users/sign-up">Sign Up</a>
-            </div>
-            </div>
+        <div class="text">
+            <a href="/users/sign-out">Sign Out</a>
+        </div>
+    </div>
 
-            <% } %>
+    <% }else{ %>
+    <div class="head-container">
+        <div class="text">
+            <a href="/users/sign-in">Sign In</a>
+        </div>
+        <div class="text">
+            <a href="/users/sign-up">Sign Up</a>
+        </div>
+    </div>
+
+    <% } %>
 
 </header>
