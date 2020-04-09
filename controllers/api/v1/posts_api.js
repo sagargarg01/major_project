@@ -31,7 +31,7 @@ module.exports.destroy = async function(req, res){
     try {
         let post = await Post.findById(req.params.id);
 
-        // if (post.user == req.user.id) {
+        if (post.user == req.user.id) {
             post.remove();
 
             await Comment.deleteMany({ post: req.params.id });
@@ -41,10 +41,11 @@ module.exports.destroy = async function(req, res){
                 message : 'post and associated comments deleted successfully'
             });
 
-        // } else {
-        //     req.flash('error', 'Not Authorized to delete');
-        //     return res.redirect('back');
-        // }
+        } else {
+           return res.json(401, {
+               message: "you cannot delet ethis post!"
+           })
+        }
 
     } catch (err) {
         return res.json(500, {
