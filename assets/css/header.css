@@ -3,7 +3,7 @@ header {
   display: flex !important;
   flex-wrap: nowrap;
   justify-content: space-between;
-  background-color: #22324B;
+  background: linear-gradient(90deg, #020024 0%, #090979 100%, #043874 100%);
   color: white; }
   header .head {
     margin-top: 5px;
