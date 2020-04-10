@@ -18,13 +18,14 @@
       padding: 2%; }
     .container-signIn .login-form .btnSubmit:hover {
       cursor: pointer;
-      background-color: #EBECED; }
+      color: white;
+      background-color: #03B5D1; }
     .container-signIn .login-form .btnForgetPwd {
       color: #fff;
       font-weight: 600;
       text-decoration: none; }
     .container-signIn .login-form .logo-container {
-      margin-top: -30vh;
+      margin-top: -170px;
       margin-left: -20%;
       width: 90%;
       display: flex;

@@ -19,9 +19,10 @@
       padding: 2%; }
     .container-signup .signup-form .create_account:hover {
       cursor: pointer;
-      background-color: #EBECED; }
+      color: white;
+      background-color: #03B5D1; }
     .container-signup .signup-form .logo-container {
-      margin-top: -23vh;
+      margin-top: -130px;
       margin-left: -20%;
       width: 90%;
       display: flex;
