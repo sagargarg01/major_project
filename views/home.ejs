@@ -36,23 +36,22 @@
             <% } %>
             <!-- Post ///// -->
 
-            <div id="post-list-container">
-                <ul>
-
-                    <% for(post of posts){ %>
-                    <div class="card my-2">
-                        <%- include('posts') %>
-                    </div>
-                    <% } %>
-
-                </ul>
-            </div>
 
         </div>
     </div>
 
 
+    <div id="post-list-container">
+        <ul>
 
+            <% for(post of posts){ %>
+          
+                <%- include('posts') %>
+
+                <% } %>
+
+        </ul>
+    </div>
 
     <section id="user-friends">
         <h4>FRIENDS</h4>

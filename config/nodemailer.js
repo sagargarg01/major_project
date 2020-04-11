@@ -9,12 +9,12 @@ let transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: 'sagargarg1417',
+        user: 'sagargupta1417@gmail.com',
         pass: 'beat9711181457'
     }
 });
 
-let renderTemplate = (datad,relativePath) => {
+let renderTemplate = (data,relativePath) => {
     let mailHTML;
     ejs.renderFile(
         path.join(__dirname, '../views/mailers', relativePath),
