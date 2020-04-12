@@ -2,7 +2,7 @@ footer {
   width: 98.6vw;
   display: flex !important;
   flex-wrap: nowrap;
-  background-color: grey;
+  background: linear-gradient(14deg, #010404 3%, #2a2832 60%);
   color: white; }
   footer .copy {
     font-family: Arial, Helvetica, sans-serif;

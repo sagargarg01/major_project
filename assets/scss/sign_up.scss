@@ -1,20 +1,26 @@
+#layout-main{
+    background: radial-gradient(circle, rgba(55,207,208,1) 35%, rgba(91,134,229,1) 100%);
+}
+
 .container-signup{
     width: 97vw;
-    margin-top: 5%;
 
     .signup-form{
-        margin: auto;  
+        margin: auto;
+        margin-top: 4%;  
         box-shadow: 5px 10px #888888;
         height: 85vh;
         padding: 30px;
         padding-right: 15px;
         padding-left: 15px;
-        background: #282726;
+        box-shadow: 0 4px 100px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%, rgb(4, 56, 116) 100%);
+        border-radius: 20px;
 
         .create_account {
             font-weight: 600;
             width: 50%;
-            color: #282726;
+            color: rgba(9,9,121,1);
             background-color: #fff;
             border: none;
             border-radius: 1.5rem;
@@ -24,7 +30,7 @@
         .create_account:hover{
             cursor: pointer;
             color: white;
-            background-color: #03B5D1;
+            background: radial-gradient(circle, rgba(60,215,227,1) 0%, rgba(70,95,252,1) 100%);
         }
 
         .logo-container{
@@ -38,7 +44,7 @@
             .login-logo img {
                 position: absolute;
                 width: 20%;
-                background: #282726;
+                background: linear-gradient(45deg, #060555 100%, rgb(4, 56, 116) 100%);
                 border-radius: 4.5rem;
                 padding: 5%;
             }
