@@ -51,7 +51,7 @@ class PostComments {
     newCommentDom(comment) {
         // i have added a class 'delete-comment-button' to delete comment link and also id to the comment's li
 
-        return $(`<li id="comment-${comment._id}
+        return $(`<li id="comment-${comment._id}">
             <p>
                 <small>
                     <a class ="delete-comment-button" href="/comments/destroy/${ comment._id }"> X </a>
