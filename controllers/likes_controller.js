@@ -37,9 +37,17 @@ module.exports.toggleLike = async function(req, res){
                 likeable: req.query.type
             });
             // where does this like comes from
-            likeable.likes.push(like);
+            likeable.likes.push(newLike);
+            likeable.save();
+
         }
 
+        return res.json(200, {
+            message: "Request successful!",
+            data: {
+                deleted: deleted
+            }
+        })
 
     }catch(err){
         console.log(err);
