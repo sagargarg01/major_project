@@ -36,8 +36,7 @@ module.exports.toggleLike = async function(req, res){
                 user: req.query._id,
                 likeable: req.query.type
             });
-            // where does this like comes from
-            likeable.likes.push(newLike);
+            likeable.likes.push(newLike._id);
             likeable.save();
 
         }
