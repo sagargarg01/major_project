@@ -16,9 +16,10 @@ module.exports.toggleLike = async function(req, res){
             likeable = await Comment.findById(req.query.id).populate('likes');
         }
 
+ 
         // check if the like is already there
         let existingLike = await Like.findOne({
-            likebale: req.query.id,
+            likeable: req.query.id,
             onModel: req.query.type,
             user: req.user._id
         })
@@ -39,7 +40,6 @@ module.exports.toggleLike = async function(req, res){
             });
             likeable.likes.push(newLike._id);
             likeable.save();
-
         }
 
         return res.json(200, {

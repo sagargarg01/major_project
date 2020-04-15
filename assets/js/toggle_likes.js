@@ -6,7 +6,7 @@ class ToggleLike{
     }
 
 
-    toggleLike(){
+    toggleLike(){ 
         $(this.toggler).click(function(e){
             e.preventDefault();
             let self = this;
@@ -17,8 +17,9 @@ class ToggleLike{
                 url: $(self).attr('href'),
             })
             .done(function(data) {
+               
                 let likesCount = parseInt($(self).attr('data-likes'));
-
+console.log(data.data)
                 if (data.data.deleted == true){
                     likesCount -= 1;
                 }else{
