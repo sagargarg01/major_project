@@ -1,7 +1,14 @@
 #home-container{
     margin-top: 2%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: space-between;
+
+    .empty{
+        width:20vw;
+        min-width: 100px;
+        height: 100vh;
+    }
 
     #user-friends{
         width: 30%;
@@ -9,5 +16,18 @@
         border-left: 1px solid lightgray;
         height: 100%;
 
+        .friends{
+            height: 40vh;
+            border-bottom: 1px solid lightgray;
+        }
+
+        .users{
+            margin-top: 4%;
+        }
     }
+
+    a:hover {
+        text-decoration: none;
+        }
 }
+

@@ -5,9 +5,16 @@
 
 <link rel="stylesheet" href="/css/home.css">
 
+
+
 <div id="home-container" class="container-fluid">
+    <div class="empty">
+        
+    </div>
+
     <div class="row">
         <div class="col">
+
             <!-- - \\\\\\\Post-->
             <% if(locals.user){ %>
             <form action="/posts/create" id="new-post-form" method="POST">
@@ -23,7 +30,8 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <textarea class="form-control" name="content" cols="55" rows="3" placeholder="Whats on your mind.. Type Here !!" required></textarea>
+                            <textarea class="form-control" name="content" cols="55" rows="3"
+                                placeholder="Whats on your mind.. Type Here !!" required></textarea>
                         </div>
                         <div class="btn-toolbar justify-content-between">
                             <div class="btn-group">
@@ -35,31 +43,37 @@
             </form>
             <% } %>
             <!-- Post ///// -->
+            <div id="post-list-container">
+                <ul>
 
+                    <% for(post of posts){ %>
 
+                    <%- include('posts') %>
+
+                    <% } %>
+
+                </ul>
+            </div>
         </div>
     </div>
 
 
-    <div id="post-list-container">
-        <ul>
 
-            <% for(post of posts){ %>
-          
-                <%- include('posts') %>
-
-                <% } %>
-
-        </ul>
-    </div>
 
     <section id="user-friends">
-        <h4>FRIENDS</h4>
-        <% for(u of all_users){%>
-        <p>
-            <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
-        </p>
-        <% } %>
+
+        <div class="friends">
+            <h4>FRIENDS</h4>
+        </div>
+
+        <div class="users">
+            <h4>ALL USERS</h4>
+            <% for(u of all_users){%>
+            <p>
+                <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+            </p>
+            <% } %>
+        </div>
 
     </section>
 </div>
@@ -68,10 +82,9 @@
 <script src="/js/home_posts.js"></script>
 
 
-<!-- CHANGE :: import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
 <script src="js/toggle_likes.js"></script>
 <script>
-    $('.toggle-like-button').each(function(){
+    $('.toggle-like-button').each(function () {
         let self = this;
         let toggleLike = new ToggleLike(self);
     });
