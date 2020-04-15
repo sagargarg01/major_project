@@ -33,6 +33,10 @@
             background: radial-gradient(circle, rgba(60,215,227,1) 0%, rgba(70,95,252,1) 100%);
         }
 
+        .btnSubmit:focus{
+            outline: none;
+        }
+
         .btnForgetPwd {
             color: #fff;
             font-weight: 600;

@@ -33,6 +33,10 @@
             background: radial-gradient(circle, rgba(60,215,227,1) 0%, rgba(70,95,252,1) 100%);
         }
 
+        .create_account:focus{
+            outline: none;
+        }
+
         .logo-container{
             margin-top: -130px;
             margin-left: -20%;

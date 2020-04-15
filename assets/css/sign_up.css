@@ -26,6 +26,8 @@
       cursor: pointer;
       color: white;
       background: radial-gradient(circle, #3cd7e3 0%, #465ffc 100%); }
+    .container-signup .signup-form .create_account:focus {
+      outline: none; }
     .container-signup .signup-form .logo-container {
       margin-top: -130px;
       margin-left: -20%;

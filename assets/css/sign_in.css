@@ -25,6 +25,8 @@
       cursor: pointer;
       color: white;
       background: radial-gradient(circle, #3cd7e3 0%, #465ffc 100%); }
+    .container-signIn .login-form .btnSubmit:focus {
+      outline: none; }
     .container-signIn .login-form .btnForgetPwd {
       color: #fff;
       font-weight: 600;
