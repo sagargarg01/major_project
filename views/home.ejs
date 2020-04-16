@@ -9,7 +9,7 @@
 
 <div id="home-container" class="container-fluid">
     <div class="empty">
-        
+
     </div>
 
     <div class="row">
@@ -58,12 +58,17 @@
     </div>
 
 
-
-
     <section id="user-friends">
 
         <div class="friends">
             <h4>FRIENDS</h4>
+            <% if(locals.user){ %>
+            <% for(let friends of friendships){ %>
+            <p>
+                <a href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
+            </p>
+            <% } %>
+            <% } %>
         </div>
 
         <div class="users">
@@ -74,6 +79,8 @@
             </p>
             <% } %>
         </div>
+
+        <%- include('chat_box') %>
 
     </section>
 </div>

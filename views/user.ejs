@@ -37,31 +37,21 @@
 <p><%= profile_users.name %></p>
 <p><%= profile_users.email %></p>
 
-<!-- checking if the profile user is already a friend or not -->
-<!-- <% let isFriendExist = false %>
-<% let friendshipId; %>
-<% for(let friends of user.friendships){ %>
-<% if(friends == profile_users.id){ %>
-<% isFriendExist = true %>
-<% friendshipId %>
-<% break %>
-<% } %>
-<% } %> -->
 
 <!-- if friend doesn't exist then shows create friend -->
-<!-- <% if(!isFriendExist){ %> -->
+<% if(!user.friendships.includes(profile_users.id)){ %>
 <a href="/users/createfriendship/<%= profile_users._id %>">
   <button>
     Add Friend
   </button>
 </a>
 <!-- otherwise shows the option of remove friends -->
-<!-- <% } else{ %>
+<% } else{ %>
 <a href="/users/destroyfriendship/<%= profile_users._id %>">
   <button>
     Remove Friend
   </button>
 </a>
-<% } %> -->
+<% } %>
 
 <% } %>

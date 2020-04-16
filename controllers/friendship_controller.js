@@ -8,68 +8,39 @@ module.exports.createFriensdhip = async function (req, res) {
     let toUser = await User.findById(req.params.id);
     let fromUser = await User.findById(req.user.id);
 
-    let isFriend = false;
-    let existingfriends = toUser.friendships
-    console.log(existingfriends);
-    // let existingfriends = fromUser.friendships;
+    if(!fromUser.friendships.includes(req.params.id)){
 
-    // for (let friend of existingfriends) {
-    //     if (friend == req.params.id) {
-    //         isFriend = true;
-    //         break;
-    //     }
-    // }
+        fromUser.friendships.push(req.params.id);
+        fromUser.save();
+        toUser.friendships.push(req.user.id);
+        toUser.save();
 
-    // if (!isFriend) {
-    //     let friends = await Friendship.create({
-    //         from_user: req.user.id,
-    //         to_user: toUser.id
-    //     });
-
-    //     fromUser.friendships.push(req.params.id);
-    //     fromUser.save();
-    //     toUser.friendships.push(req.user.id);
-    //     toUser.save();
-
-
-    //     req.flash('success', 'Friend Added Successfully');
-    // }
-    // else{
-    //     req.flash('error', 'Friend Already Exist');
-    // }
-
+        req.flash('success', 'Friend Added Successfully');
+    }
+    else{
+        req.flash('error', 'Friend Already Exist');
+    }
     return res.redirect('back');
 
     }catch(err){
         console.log("Error in creating friends", err);
         return res.redirect('back');
     }
-
 }
 
 module.exports.destroyFriendship = async function(req, res){
 
-    // let friend1 = await User.findById(req.params.id);
-    // let friend2 = await User.findById(req.user.id);
-    // let friendship;
-    // friendship = await Friendship.findOne({
-    //     from_user: friend2.id,
-    //     to_user:friend1.id
-    // })
+    let reqFriend = await User.findById(req.user.id);
+    let resFriend = await User.findById(req.params.id);
 
-    // if(friendship == null)
-    // friendship = await Friendship.findOne({
-    //     from_user: friend1.id,
-    //     to_user: friend2.id
-    // })
-
-    // // friendship.remove();
-
+    let index = reqFriend.friendships.indexOf(req.params.id)
+    reqFriend.friendships.splice(index,1);
+    reqFriend.save();
     
-    // friend2.friendships.f()
+    index = resFriend.friendships.indexOf(req.user.id)
+    resFriend.friendships.splice(index,1);
+    resFriend.save();
 
-    // console.log(friend1)
-
-    // req.flash('success' , 'Friendship Deleted Successfully')
+    req.flash('success' , 'Friendship Deleted Successfully')
     return res.redirect('back');
 }
