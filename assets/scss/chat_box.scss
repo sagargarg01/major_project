@@ -1,8 +1,11 @@
 #user-chat-box{
-    position: relative;
-    border: 1px solid lightgrey;
-    width : 90%;
+    position: fixed;
+    width : 300px;
     height: 350px;
+    border: 1px solid lightgrey;
+    background: white;  
+    right:5;
+    bottom: 5;
 
     #chat-messages-list li{
         list-style: none;
@@ -18,7 +21,7 @@
             
             span{
                 padding: 10px;
-                background-color: grey;
+                background-color: lightgray;
                 display: inline-block;
             }
         }
