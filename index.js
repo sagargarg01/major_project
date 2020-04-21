@@ -1,5 +1,6 @@
 const express = require('express');
 const env = require('./config/environment');
+const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
@@ -23,6 +24,7 @@ chatServer.listen(5000);
 console.log('chat Server is listening on port 5000');
 const path = require('path');
 
+if (env.name == 'development'){
 app.use(sassMiddleware({
     src: path.join(__dirname, env.asset_path, 'scss'),
     dest: path.join(__dirname, env.asset_path, 'css'),
@@ -30,6 +32,7 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }));
+}
 
 //use this to read from post requests
 app.use(express.urlencoded());
@@ -41,6 +44,8 @@ app.use(express.static(env.asset_path));
 
 // make the uploads path avaialable to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expressLayouts);
 
