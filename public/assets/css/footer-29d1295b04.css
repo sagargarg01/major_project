@@ -1,0 +1,18 @@
+footer {
+  width: 98.6vw;
+  display: flex !important;
+  flex-wrap: nowrap;
+  background: linear-gradient(14deg, #010404 3%, #2a2832 60%);
+  color: white; }
+  footer .copy {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+    padding-bottom: 34px; }
+  footer .container-footer .home {
+    margin-top: 15px; }
+  footer .container-footer a {
+    text-decoration: none;
+    color: white; }
+  footer .container-footer a:hover {
+    text-decoration: none;
+    cursor: pointer; }
