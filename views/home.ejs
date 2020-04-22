@@ -3,8 +3,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-<link rel="stylesheet" href="/css/home.css">
-
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
 
 
 <div id="home-container" class="container-fluid">
@@ -85,11 +84,11 @@
 
 </div>
 
-<script src="/js/home_posts_comments.js"></script>
-<script src="/js/home_posts.js"></script>
+<script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
+<script src="<%= assetPath('js/home_posts.js') %>"></script>
 
 
-<script src="js/toggle_likes.js"></script>
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function () {
         let self = this;
@@ -98,7 +97,7 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
 
 <% if(locals.user){ %>
 <script>
