@@ -1,6 +1,10 @@
+#layout-main{
+    background-color: #eeeeee;
+}
+
 #home-container{
-    margin-top: 2%;
-    margin-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     display: flex;
     justify-content: space-between;
 
@@ -10,7 +14,12 @@
         height: 100vh;
     }
 
+    .posts{
+        max-width: 550px;
+    }
+
     #user-friends{
+        text-transform: capitalize;
         width: 30%;
         padding: 10px;
         border-left: 1px solid lightgray;

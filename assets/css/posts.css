@@ -1,0 +1,5 @@
+li {
+  list-style: none; }
+  li .dropdown-toggle::after {
+    content: none;
+    display: none; }

@@ -1,13 +1,19 @@
+#layout-main {
+  background-color: #eeeeee; }
+
 #home-container {
-  margin-top: 2%;
-  margin-bottom: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   display: flex;
   justify-content: space-between; }
   #home-container .empty {
     width: 20vw;
     min-width: 100px;
     height: 100vh; }
+  #home-container .posts {
+    max-width: 550px; }
   #home-container #user-friends {
+    text-transform: capitalize;
     width: 30%;
     padding: 10px;
     border-left: 1px solid lightgray;

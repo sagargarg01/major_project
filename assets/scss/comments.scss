@@ -1,0 +1,35 @@
+ul{
+    padding: 0px !important;
+}
+.comment{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: small;
+    display: flex;
+    flex-wrap: nowrap;
+
+    a{
+        color: #090977;
+    }
+
+    .comment-content{
+        text-align: center;
+        background-color: #F2F3F5;
+        padding: 10px;
+        padding-top: 8px;;
+        border-radius: 25px;
+    }
+
+    .details{
+        color: transparent;
+        font-size: smaller;
+    }
+    
+}
+
+.comment:hover .details{
+        color:lightgray
+}
+
+.like-button{
+    margin-left: 60px;
+}

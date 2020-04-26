@@ -1,26 +1,38 @@
-<li id="comment-<%= comment._id %>">
-    <p>
-        <% if(locals.user && (locals.user.id == comment.user.id || post.user.id == locals.user.id)){ %>
-         <small>
-              <a class ="delete-comment-button" href="/comments/destroy/<%= comment.id %>"> X </a>
-        </small>
-        <% } %>
+<link rel="stylesheet" href="/css/comments.css">
 
-        <%= comment.content %>
-        <br>
-        <small>
-            <%= comment.user.name %>
-        </small>
-        <!-- CHANGE :: display the likes of this comment, if the user is logged in, then show the link to toggle likes, else, just show the count -->
-            <!-- study about the data attribute -->
-            <small>
-                <% if (locals.user){ %>
-                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
-                            <%= comment.likes.length %> Likes
-                    </a>
-                <% }else{ %>
-                    <%= comment.likes.length %> Likes
-                <% } %>
-            </small>
-    </p>
+<li id="comment-<%= comment._id %>">
+
+        <div class="comment">
+            <a href="/users/profile/<%= comment.user.id %>">
+            <img class="rounded-circle" width="39" src="<%= user.avatar %>" alt=""></a>
+            <div class="comment-content ml-2">
+            <a href="/users/profile/<%= comment.user.id %>" class="font-weight-bold">
+                    <span>
+                        <%= comment.user.name %>
+                    </span>
+            </a>
+            <%= comment.content %>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-link dropdown-toggle details" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                    <div class="h6 dropdown-header">Configuration</div>
+                    <a class="dropdown-item" href="#">Save</a>
+                    <% if(locals.user && (locals.user.id == comment.user.id || post.user.id == locals.user.id)){ %>
+                        <a class="delete-comment-button dropdown-item " href="/comments/destroy/<%= comment.id %>"> Delete </a>
+                    <% } %>
+                    <a class="dropdown-item" href="#">Report</a>
+                </div>
+            </div>
+        </div>
+        <!-- <small class="like-button">
+            <a class="toggle-like-button" data-likes="<%= comment.likes.length %>"
+                href="/likes/toggle/?id=<%=comment._id%>&type=Comment">
+                <%= comment.likes.length %> Likes
+            </a>
+        </small> -->
 </li>
