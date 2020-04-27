@@ -7,6 +7,7 @@ class ToggleLike {
 
 
     toggleLike() {
+       
         $(this.toggler).click(function (e) {
             e.preventDefault();
             let self = this;
@@ -20,8 +21,8 @@ class ToggleLike {
                 url: $(self).attr('href'),
             })
                 .done(function (data) {
-                    console.log($('#likes-count').attr('data-likes'))
-                    let likesCount = parseInt($('#likes-count').attr('data-likes'));
+                    
+                    let likesCount = parseInt($(`#likes-count-${data.data.post._id}`).attr('data-likes'));
 
                     if (data.data.deleted == true) {
                         likesCount -= 1;
@@ -29,26 +30,20 @@ class ToggleLike {
                         likesCount += 1;
                     }
 
-                    $('#likes-count').attr('data-likes', likesCount);
-
-                    var noLike = true;
+                    $(`#likes-count-${data.data.post._id}`).attr('data-likes', likesCount);
 
                     if (likesCount > 0) {
-                        $('#put-like').html('<i class="fas fa-thumbs-up"></i> Like')
-                        if (noLike) {
-                            $('#likes-count').html(`<img src="https://i.pinimg.com/originals/39/44/6c/39446caa52f53369b92bc97253d2b2f1.png" 
+                        $(`#put-like-${data.data.post._id}`).html('<i class="fas fa-thumbs-up"></i> Like')
+                            $(`#likes-count-${data.data.post._id}`).html(`<img src="/images/like.png" 
                             data-likes="<%= post.likes.length %>" id="count" class="rounded-circle" width="30" > ${likesCount}`);
                             $('.card-post').css({ 'padding-bottom': '5px' })
-                        }
                     }
                     else {
-                        $('#put-like').html('<i class="far fa-thumbs-up"></i> Like')
-                        $('#likes-count').html('');
+                        $(`#put-like-${data.data.post._id}`).html('<i class="far fa-thumbs-up"></i> Like')
+                        $(`#likes-count-${data.data.post._id}`).html('');
                         $('.card-post').css({ 'padding-bottom': '20px' })
+
                     }
-
-
-
                 })
                 .fail(function (errData) {
                     console.log('error in completing the request');

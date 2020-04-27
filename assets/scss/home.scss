@@ -11,8 +11,40 @@
     .empty{
         width:20vw;
         min-width: 100px;
-        height: 100vh;
+        height: 400px;
+
+        .cover-picture{
+            height: 80px;
+            width: 100%;
+            background: linear-gradient(14deg, rgba(34,193,195,1) 27%, rgba(253,187,45,1) 90%);
+        }
+
+        .locals-user-link{
+            margin: auto;
+            margin-top: -35px;
+            margin-bottom: 5px;
+            color: black;
+            border-bottom: 1px solid lightgray;
+
+                img{
+                    margin: auto;
+                    border: 2px solid white;
+                }
+        }
+
+        .friendlist{
+            padding: 10px 25px 10px 25px;
+            text-transform: capitalize;
+
+            .length{
+                text-transform: lowercase;
+                float: right;
+            }
+        }
+
     }
+
+   
 
     .posts{
         max-width: 550px;
@@ -22,7 +54,6 @@
         text-transform: capitalize;
         width: 30%;
         padding: 10px;
-        border-left: 1px solid lightgray;
         height: 100%;
 
         .friends{

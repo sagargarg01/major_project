@@ -8,14 +8,14 @@ const likeSchema = new mongoose.Schema({
     likeable: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        refPath: 'onModel'
+        refPath: 'Post'
     },
-    // this field is used for defining the type of the linked object since this is a dynamic reference
-    onModel: {
-        type: String,
-        required: true,
-        enum: ['Post', 'Comment']
-    }
+    // // this field is used for defining the type of the linked object since this is a dynamic reference
+    // onModel: {
+    //     type: String,
+    //     required: true,
+    //     enum: ['Post', 'Comment']
+    // }
 },{
         timestamps: true
     });

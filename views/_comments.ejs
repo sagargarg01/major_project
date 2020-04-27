@@ -4,10 +4,14 @@
 
         <div class="comment">
             <a href="/users/profile/<%= comment.user.id %>">
-            <img class="rounded-circle" width="39" src="<%= user.avatar %>" alt=""></a>
+                <% if(comment.user.avatar){ %>
+                    <img class="rounded-circle" width="39" src="<%= comment.user.avatar %>" alt="">
+                    <% } else{ %>
+                    <img class="rounded-circle" width="39" src="/images/no_profile.jpg" alt="">
+                    <% } %>
             <div class="comment-content ml-2">
             <a href="/users/profile/<%= comment.user.id %>" class="font-weight-bold">
-                    <span>
+                    <span class="text-capitalize">
                         <%= comment.user.name %>
                     </span>
             </a>

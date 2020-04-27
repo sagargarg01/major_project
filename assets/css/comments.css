@@ -5,7 +5,8 @@ ul {
   font-family: Helvetica, Arial, sans-serif;
   font-size: small;
   display: flex;
-  flex-wrap: nowrap; }
+  flex-wrap: nowrap;
+  margin-bottom: 10px; }
   .comment a {
     color: #090977; }
   .comment .comment-content {

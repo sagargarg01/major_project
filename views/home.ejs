@@ -1,26 +1,64 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
- integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" 
- crossorigin="anonymous">
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
 <link rel="stylesheet" href="/css/posts.css">
 
-
+<% if(locals.user){ %>
 <div id="home-container" class="container-fluid">
-    <div class="empty">
+    <div class="empty card ml-3 ">
+        <div class="cover-picture">
+            <!-- will add a cover picure upload functionality -->
+        </div>
+
+        <a href="/users/profile/<%= locals.user.id %>" class="locals-user-link">
+            <div class="user-pic">
+                <% if(locals.user.avatar){ %>
+                <img class="rounded-circle mx-5" width="70" src="<%= locals.user.avatar %>" alt="">
+                <% } else{ %>
+                <img class="rounded-circle mx-5" width="60" src="/images/no_profile.jpg" alt="">
+                <% } %>
+            </div>
+
+            <div class="card-body text-capitalize">
+                <h5 class="card-title text-center"><%= locals.user.name %></h5>
+            </div>
+        </a>
+
+        <div class="text-muted small friendlist">
+            <span>
+                  friendlist
+            </span>
+           <span class="length">
+               <%= locals.user.friendships.length %>
+           </span>
+        </div>
+
+        <div class="text-muted small friendlist">
+            <span>
+                  email
+            </span>
+           <span class="length">
+               <%= locals.user.email%>
+           </span>
+        </div>
 
     </div>
+
 
     <div class="row posts">
         <div class="col mx-3">
 
             <!-- - \\\\\\\Post-->
-            <% if(locals.user){ %>
+
             <form action="/posts/create" id="new-post-form" method="POST">
                 <div class="card">
                     <div class="card-header">
@@ -48,12 +86,12 @@
             <% } %>
             <!-- Post ///// -->
             <div id="post-list-container">
-                
-                    <% for(post of posts){ %>
 
-                    <%- include('posts') %>
+                <% for(post of posts){ %>
 
-                    <% } %>
+                <%- include('posts') %>
+
+                <% } %>
 
             </div>
         </div>
@@ -61,29 +99,41 @@
 
 
     <section id="user-friends">
-
-        <div class="friends">
+        <!-- changinf this &********************** -->
+        <div class="friends list-group list-group-flush">
             <h4>FRIENDS</h4>
             <% if(locals.user){ %>
             <% for(let friends of friendships){ %>
-            <p>
-                <a href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
+
+            <p class="list-group-item">
+                <% if(friends.avatar){ %>
+                <img class="rounded-circle" width="45" src="<%= friends.avatar %>" alt="">
+                <% } else{ %>
+                <img class="rounded-circle" width="45" src="/images/no_profile.jpg" alt="">
+                <% } %>
+                <a class="ml-2" href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
             </p>
+
             <% } %>
             <% } %>
         </div>
 
-        <div class="users">
+        <div class="users list-group">
             <h4>ALL USERS</h4>
             <% for(u of all_users){%>
-            <p>
-                <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+            <p class="list-group-item">
+                <% if(u.avatar){ %>
+                <img class="rounded-circle" width="45" src="<%= u.avatar %>" alt="">
+                <% } else{ %>
+                <img class="rounded-circle" width="45" src="/images/no_profile.jpg" alt="">
+                <% } %>
+                <a class="ml-2" href="/users/profile/<%= u.id %>"> <%= u.name %></a>
             </p>
             <% } %>
         </div>
     </section>
 
-    <%- include('chat_box') %>
+
 
 </div>
 <script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
@@ -106,4 +156,3 @@
     new chatEngine('user-chat-box', '<%= locals.user.email %>')
 </script>
 <% } %>
-

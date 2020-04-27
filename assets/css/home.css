@@ -9,14 +9,32 @@
   #home-container .empty {
     width: 20vw;
     min-width: 100px;
-    height: 100vh; }
+    height: 400px; }
+    #home-container .empty .cover-picture {
+      height: 80px;
+      width: 100%;
+      background: linear-gradient(14deg, #22c1c3 27%, #fdbb2d 90%); }
+    #home-container .empty .locals-user-link {
+      margin: auto;
+      margin-top: -35px;
+      margin-bottom: 5px;
+      color: black;
+      border-bottom: 1px solid lightgray; }
+      #home-container .empty .locals-user-link img {
+        margin: auto;
+        border: 2px solid white; }
+    #home-container .empty .friendlist {
+      padding: 10px 25px 10px 25px;
+      text-transform: capitalize; }
+      #home-container .empty .friendlist .length {
+        text-transform: lowercase;
+        float: right; }
   #home-container .posts {
     max-width: 550px; }
   #home-container #user-friends {
     text-transform: capitalize;
     width: 30%;
     padding: 10px;
-    border-left: 1px solid lightgray;
     height: 100%; }
     #home-container #user-friends .friends {
       height: 40vh;

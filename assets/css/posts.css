@@ -1,5 +1,9 @@
 li {
-  list-style: none; }
+  list-style: none;
+  margin-top: 10px; }
   li .dropdown-toggle::after {
     content: none;
     display: none; }
+  li .card-post .comments {
+    float: right;
+    margin-right: 10px; }

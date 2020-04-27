@@ -1,34 +1,111 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+  integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 <link rel="stylesheet" href="<%= assetPath('css/user_profile.css') %>">
 
-<img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+<div class="user-profile card">
+  <div class="cover-image">
+    <!-- add a cover image functionality -->
+  </div>
 
+  <div class="profile-picture">
+    <% if(profile_users.avatar){ %>
+    <img class="rounded-circle" width="140" src="<%= profile_users.avatar %>" alt="">
+    <% } else{ %>
+    <img class="rounded-circle" width="100" src="/images/no_profile.jpg" alt="">
+    <% } %>
+  </div>
+  <span class="name">
+    <%= profile_users.name %>
+  </span>
+
+  <% if(user.id == profile_users.id){ %>
+  <span class="side-button small">
+    <button data-toggle="modal" data-target="#edit">
+      <i class="fas fa-pen"></i>
+      Edit Profile
+    </button>
+
+    <div class="modal fade" id="edit" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Information</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+
+            <form action="/users/update/<%= profile_users.id %>" method="POST" enctype="multipart/form-data">
+
+              <div class="form-group">
+                <label for="edit-name">Name</label>
+                <input type="text" name="name" class="form-control" id="edit-name" placeholder="Your Name"
+                  value="<%= profile_users.name %>" required>
+              </div>
+
+              <div class="form-group">
+                <label for="InputEmail">Email address</label>
+                <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Your Email"
+                  value="<%= profile_users.email %>" required>
+              </div>
+
+              <div class="form-group">
+                <input type="file" name="avatar" class="form-control" placeholder="Profile Picture">
+              </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-default">Update</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </span>
+  <% } %>
+
+
+  <div class="bottom-list">
+    <div class="timeline item">
+      timeline
+    </div>
+
+    <div class="about item">
+      about
+    </div>
+
+    <div class="friends item">
+      friends
+    </div>
+
+    <div class="more item">
+      more
+    </div>
+
+  </div>
+
+</div>
+
+
+<div>
+
+</div>
 <% if(user.id == profile_users.id){ %>
 <!-- if user matches then show the form -->
-<form action="/users/update/<%= profile_users.id %>" method="POST" enctype="multipart/form-data">
-  <input type="text" name="name" placeholder="Your Name" value="<%= profile_users.name %>" required>
-  <input type="email" name="email" placeholder="Your Email" value="<%= profile_users.email %>" required>
-  <input type="file" name="avatar" placeholder="Profile Picture">
-  <input type="submit" value="update">
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
