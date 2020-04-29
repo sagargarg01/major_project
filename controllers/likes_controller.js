@@ -40,7 +40,8 @@ module.exports.toggleLike = async function(req, res){
             message: "Request successful!",
             data: {
                 post: likeable,
-                deleted: deleted
+                deleted: deleted,
+                user: req.user._id
             }
         })
 

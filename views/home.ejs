@@ -10,7 +10,7 @@
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <link rel="stylesheet" href="<%= assetPath('css/home.css') %>">
-<link rel="stylesheet" href="/css/posts.css">
+
 
 <% if(locals.user){ %>
 <div id="home-container" class="container-fluid">
@@ -32,7 +32,7 @@
                 <h5 class="card-title text-center"><%= locals.user.name %></h5>
             </div>
         </a>
-
+ 
         <div class="text-muted small friendlist">
             <span>
                   friendlist

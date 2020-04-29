@@ -1,5 +1,10 @@
 body{
 background-color: #eeeeee;
+      
+
+    a:hover{
+        text-decoration: none;
+    }
 
     .user-profile{
         height: 300px;
@@ -31,12 +36,26 @@ background-color: #eeeeee;
             color: white;
             font-family: sans-serif;
             text-shadow: 6px 0px 28px rgba(150, 150, 154, 1);
+            text-transform: capitalize;
         }
 
-        .side-button {
+        .side-button{
             position: absolute;
             bottom: 70px;
             right: 20px;
+          
+        
+            button{
+                border: 1px solid rgba(0, 0, 0, 0.562);
+                color: rgba(0, 0, 0, .75);
+                font-weight: bold;
+                border-radius: 2px;
+                padding: 3px 10px 3px 10px;
+            }
+
+            button:hover{
+                cursor: pointer;
+            }
         }
 
         .bottom-list{
@@ -52,7 +71,33 @@ background-color: #eeeeee;
                 padding: 10px;
                 padding-left: 20px; 
                 padding-right: 20px;
+               
+                button{
+                    text-transform: capitalize;
+                    border: none;
+                    background: none;
+                    color: #080877;
+                    font-weight: bold;
+                }
+
+                button:hover{
+                    cursor: pointer;
+                }
+
+                button:focus{
+                    outline: none;
+                }
+            }
+
+            .item:hover{
+                background: darken($color: #86868611, $amount: 100);
             }
         }
+    }
+
+    .tl{
+      display: inline-block;
+      margin-left: 20%;
+      padding: 15px;
     }
 }

@@ -12,9 +12,6 @@ class ToggleLike {
             e.preventDefault();
             let self = this;
 
-            // changing the symbol from didn't like to liked
-
-
             // this is a new way of writing ajax which you might've studied, it looks like the same as promises
             $.ajax({
                 type: 'POST',
@@ -30,18 +27,23 @@ class ToggleLike {
                         likesCount += 1;
                     }
 
+
                     $(`#likes-count-${data.data.post._id}`).attr('data-likes', likesCount);
 
                     if (likesCount > 0) {
+                         
+                        if(data.data.post.likes.find(x=> x.user == data.data.user.id)){ 
                         $(`#put-like-${data.data.post._id}`).html('<i class="fas fa-thumbs-up"></i> Like')
+                         }else{
+                            $(`#put-like-${data.data.post._id}`).html('<i class="far fa-thumbs-up"></i> Like')
+                         }
+
                             $(`#likes-count-${data.data.post._id}`).html(`<img src="/images/like.png" 
                             data-likes="<%= post.likes.length %>" id="count" class="rounded-circle" width="30" > ${likesCount}`);
-                            $('.card-post').css({ 'padding-bottom': '5px' })
                     }
                     else {
                         $(`#put-like-${data.data.post._id}`).html('<i class="far fa-thumbs-up"></i> Like')
                         $(`#likes-count-${data.data.post._id}`).html('');
-                        $('.card-post').css({ 'padding-bottom': '20px' })
 
                     }
                 })

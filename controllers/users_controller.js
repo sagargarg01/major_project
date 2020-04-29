@@ -1,15 +1,31 @@
 const User = require('../models/user');
+const Post = require('../models/post');
 const fs = require('fs');
 const path = require('path');
 
 // keep it same as before
-module.exports.profile = function(req,res){
-    User.findById(req.params.id, function(err,user){
+module.exports.profile = async function(req,res){
+
+    let user = await User.findById(req.params.id);
+
+
+
+    let posts = await Post.find({user:req.params.id})
+    .sort('-createdAt')
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate: { 
+            path: 'user likes',
+        }
+    }).populate('likes'); 
+ 
         return res.render('user',{
-            title : 'User Profile',
-            profile_users: user
+            title : user.name,
+            profile_users: user,
+            posts : posts
         });
-    });
+    
    
 }
 

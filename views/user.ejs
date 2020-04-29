@@ -19,7 +19,7 @@
     <% if(profile_users.avatar){ %>
     <img class="rounded-circle" width="140" src="<%= profile_users.avatar %>" alt="">
     <% } else{ %>
-    <img class="rounded-circle" width="100" src="/images/no_profile.jpg" alt="">
+    <img class="rounded-circle" width="140" src="/images/no_profile.jpg" alt="">
     <% } %>
   </div>
   <span class="name">
@@ -76,24 +76,70 @@
       </div>
     </div>
   </span>
+  <% }else{ %>
+
+  <span class="side-button small">
+    <!-- if friend doesn't exist then shows create friend -->
+    <% if(!user.friendships.includes(profile_users.id)){ %>
+    <a href="/users/createfriendship/<%= profile_users._id %>">
+      <button class="friends">
+        <i class="fas fa-user-friends"></i>
+        Add Friend
+      </button>
+    </a>
+    <!-- otherwise shows the option of remove friends -->
+    <% } else{ %>
+
+    <div class="dropdown">
+      <button type="button" id="friends" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-check"></i>
+        Friends
+        &ensp;
+        <i class="fas fa-caret-down"></i>
+      </button>
+
+      <button type="button">
+        <i class="far fa-comments"></i>
+        Message
+      </button>
+
+      <div class="dropdown-menu" aria-labelledby="friends">
+        <a href="/users/destroyfriendship/<%= profile_users._id %>" class="dropdown-item">
+          Unfriend
+        </a>
+      </div>
+    </div>
+    
+    <% } %>
+  </span>
+
+
   <% } %>
 
 
   <div class="bottom-list">
     <div class="timeline item">
-      timeline
+      <button onclick="showTimeline()">
+        timeline
+      </button>
     </div>
 
     <div class="about item">
-      about
+      <button onclick="showAbout()">
+        about
+      </button>
     </div>
 
     <div class="friends item">
-      friends
+      <button onclick="showFriends()">
+        friends
+      </button>
     </div>
 
     <div class="more item">
-      more
+      <button>
+        more
+      </button>
     </div>
 
   </div>
@@ -101,34 +147,51 @@
 </div>
 
 
-<div>
+<div id="user-timeline" class="tl">
+  <% for(post of posts){ %>
 
+  <%- include('posts') %>
+
+  <% } %>
 </div>
-<% if(user.id == profile_users.id){ %>
-<!-- if user matches then show the form -->
+
+<div id="user-about" style="display: none;">
+  About
+</div>
+
+<div id="user-friends" style="display: none;">
+  friends
+</div>
 
 
+<script>
 
-<% } else{ %>
-<!-- else show only the profile info -->
-<p><%= profile_users.name %></p>
-<p><%= profile_users.email %></p>
+  function showTimeline() {
+    $('#user-timeline').css("display", "block");
+    $('#user-about').css("display", "none");
+    $('#user-friends').css("display", "none");
+  }
 
+  function showAbout() {
+    $('#user-timeline').css("display", "none");
+    $('#user-about').css("display", "block");
+    $('#user-friends').css("display", "none");
+  }
 
-<!-- if friend doesn't exist then shows create friend -->
-<% if(!user.friendships.includes(profile_users.id)){ %>
-<a href="/users/createfriendship/<%= profile_users._id %>">
-  <button>
-    Add Friend
-  </button>
-</a>
-<!-- otherwise shows the option of remove friends -->
-<% } else{ %>
-<a href="/users/destroyfriendship/<%= profile_users._id %>">
-  <button>
-    Remove Friend
-  </button>
-</a>
-<% } %>
+  function showFriends() {
+    $('#user-timeline').css("display", "none");
+    $('#user-about').css("display", "none");
+    $('#user-friends').css("display", "block");
+  }
 
-<% } %>
+</script>
+
+<script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
+
+<script src="<%= assetPath('js/toggle_likes.js') %>"></script>
+<script>
+  $('.toggle-like-button').each(function () {
+    let self = this;
+    let toggleLike = new ToggleLike(self);
+  });
+</script>
