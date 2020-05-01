@@ -2,13 +2,14 @@ const User = require('../models/user');
 const Post = require('../models/post');
 const fs = require('fs');
 const path = require('path');
+const resetPasswordMailer = require('../mailers/reset_password_mailer');
 
 // keep it same as before
 module.exports.profile = async function(req,res){
 
-    let user = await User.findById(req.params.id);
+    try {
 
-
+        let user = await User.findById(req.params.id);
 
     let posts = await Post.find({user:req.params.id})
     .sort('-createdAt')
@@ -25,6 +26,12 @@ module.exports.profile = async function(req,res){
             profile_users: user,
             posts : posts
         });
+
+    } catch (err) {
+        console.log("ERROR",err);
+    }
+
+    
     
    
 }
@@ -140,4 +147,47 @@ module.exports.destroySession = function(req,res){
     req.logout();
 
     return res.redirect('/');
+}
+
+module.exports.Forgotten_password = function(req, res){
+
+        return res.render('forgotten_password',{
+            title: "Forgotten Password"
+        });
+
+}
+
+module.exports.find_user = async function(req, res){
+
+    try{
+        let user = await User.findOne({email: req.body.email})
+    
+       return res.render('verify_account',{
+           title: "Reset Password",
+           user:user
+       });
+    }
+    catch(err){
+        res.flash("error","No Results Found");
+        return;
+    }
+
+}
+ 
+module.exports.send_mail =  async function(req, res){
+
+    try{
+        resetPasswordMailer.passwordResetMail(req.body.email);
+        let user = await User.findOne({email: req.body.email})
+    
+       return res.render('verify_account',{
+           title: "Reset Password",
+           user:user
+       });
+    }
+    catch(err){
+        res.flash("error","No Results Found");
+        return;
+    }
+
 }

@@ -13,6 +13,7 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const passportJWT = require('./config/passport-jws-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
+const passportFacebook = require('./config/passport-facebook-oauth');
 const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');

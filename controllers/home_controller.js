@@ -3,6 +3,13 @@ const User = require('../models/user');
 
      //req.cookies ka console log
 
+module.exports.welcome = function(req,res){
+
+    return res.render('welcome',{
+        title: "Social Garg"
+    })
+}
+
 module.exports.home = async function(req,res){
 
     try{

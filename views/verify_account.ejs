@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <div class="card" id="notification"> 
+        <div class="card-body">
+            <h5 class="card-title"> Check Your Email</h5>
+            <p class="card-text">
+                we have send an email to your registered email id, use the link to reset your Password
+            </p>
+        </div>
+    </div>
+
+
+<div class="card">
+    <div class="card-body">
+
+        <h5 class="card-title"> Reset Your Password </h5>
+
+        <div>
+            <% if(user.avatar){ %>
+                <img class="rounded mx-auto d-block" width="100" src="<%= user.avatar %>" alt="">
+                <% } else{ %>
+                <img class="img-thumbnail" width="45" src="/images/no_profile.jpg" alt="">
+                <% } %>
+
+                <span>
+                   <b>
+                       <%= user.name %>
+                   </b> 
+                </span> 
+        </div>
+ 
+        <div>
+            <form action="/users/send-mail" method="POST">
+                <input type="hidden" name="email" value="<%= user.email %>">
+                <button type="submit"> Continue </button>
+                <a href="/users/forgot_password"><button type="button">Not You?</button></a>
+            </form>
+            
+        </div>
+
+    </div>
+</div>
