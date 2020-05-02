@@ -5,130 +5,130 @@ const path = require('path');
 const resetPasswordMailer = require('../mailers/reset_password_mailer');
 
 // keep it same as before
-module.exports.profile = async function(req,res){
+module.exports.profile = async function (req, res) {
 
     try {
 
         let user = await User.findById(req.params.id);
 
-    let posts = await Post.find({user:req.params.id})
-    .sort('-createdAt')
-    .populate('user')
-    .populate({
-        path: 'comments',
-        populate: { 
-            path: 'user likes',
-        }
-    }).populate('likes'); 
- 
-        return res.render('user',{
-            title : user.name,
+        let posts = await Post.find({ user: req.params.id })
+            .sort('-createdAt')
+            .populate('user')
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'user likes',
+                }
+            }).populate('likes');
+
+        return res.render('user', {
+            title: user.name,
             profile_users: user,
-            posts : posts
+            posts: posts
         });
 
     } catch (err) {
-        console.log("ERROR",err);
+        console.log("ERROR", err);
     }
 
-    
-    
-   
+
+
+
 }
 
-module.exports.update = async function(req, res){
-//    if (req.user.id == req.params.id){
-//         User.findByIdAndUpdate(req.params.id, req.body , function(err, user){
-//             return res.redirect('back');
-//         });
-//     }else{
-//         return res.status(401).send('Unauthorized');
-//     }
+module.exports.update = async function (req, res) {
+    //    if (req.user.id == req.params.id){
+    //         User.findByIdAndUpdate(req.params.id, req.body , function(err, user){
+    //             return res.redirect('back');
+    //         });
+    //     }else{
+    //         return res.status(401).send('Unauthorized');
+    //     }
 
-        if (req.user.id == req.params.id){
-         
-            try {
-                
-                let user = await User.findById(req.params.id);
-                User.uploadedAvatar(req, res, function(err) {
-                    if(err){console.log('***multer error',err); return; }
+    if (req.user.id == req.params.id) {
 
-                   user.name  = req.body.name;
-                   user.email = req.body.email;
+        try {
 
-                   if(req.file){
+            let user = await User.findById(req.params.id);
+            User.uploadedAvatar(req, res, function (err) {
+                if (err) { console.log('***multer error', err); return; }
 
-                      if(user.avatar){
-                          fs.unlinkSync(path.join(__dirname , '..', user.avatar));
-                      }
-                       // this is saving the path of the uploaded file into the avatar field in the user
-                       user.avatar = User.avatarPath + '/' + req.file.filename;
-                   }
-                   user.save();
+                user.name = req.body.name;
+                user.email = req.body.email;
 
-                   return res.redirect('back');
-                });
+                if (req.file) {
 
-            } catch (error) {
-                req.flash('error',err);
-                return;
-            }
+                    if (user.avatar) {
+                        fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                    }
+                    // this is saving the path of the uploaded file into the avatar field in the user
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
+                }
+                user.save();
 
-        
-        }else{
-            req.flash('Unauthorized')
-            return res.status(401).send('Unauthorized');
+                return res.redirect('back');
+            });
+
+        } catch (error) {
+            req.flash('error', err);
+            return;
         }
+
+
+    } else {
+        req.flash('Unauthorized')
+        return res.status(401).send('Unauthorized');
+    }
 
 }
 
 // render the sign up page
-module.exports.signUp = function(req,res){
+module.exports.signUp = function (req, res) {
 
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         return res.redirect('/users/profile');
     }
 
-    return res.render('user_sign_up',{
-        title : "Codeial | Sign Up"
+    return res.render('user_sign_up', {
+        title: "Codeial | Sign Up"
     });
 }
 
 
 // render the sign in page
-module.exports.signIn = function(req,res){
+module.exports.signIn = function (req, res) {
 
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         return res.redirect('/users/profile/req.params.id');
     }
 
-    return res.render('user_sign_in',{
-        title : "Codeial | Sign In"
+    return res.render('user_sign_in', {
+        title: "Codeial | Sign In"
     });
 }
 
 
 // get the signup data
-module.exports.create = function(req,res){
-    if(req.body.password != req.body.confirm_password){
+module.exports.create = function (req, res) {
+    if (req.body.password != req.body.confirm_password) {
         return res.redirect('back');
     }
 
-    User.findOne({email: req.body.email}, function(err,user){
-        if(err){console.log('error in finding user in signing up');return;}
+    User.findOne({ email: req.body.email }, function (err, user) {
+        if (err) { console.log('error in finding user in signing up'); return; }
 
-        if(!user){
-            User.create(req.body,function(err,user){
-                if(err){console.log('error in creating user while signing up');return;}
+        if (!user) {
+            User.create(req.body, function (err, user) {
+                if (err) { console.log('error in creating user while signing up'); return; }
 
                 req.flash('success', 'User Created Successfully')
                 return res.redirect('/users/sign-in');
             });
         }
 
-        else{
+        else {
             req.flash('error', 'User Already Exists');
-            return res.redirect('back'); 
+            return res.redirect('back');
         }
 
     });
@@ -136,12 +136,12 @@ module.exports.create = function(req,res){
 
 
 //sign in and create a session for the user
-module.exports.createSession = function(req,res){
+module.exports.createSession = function (req, res) {
     req.flash('success', 'Logged in Sucessfully');
     return res.redirect('/');
 }
 
-module.exports.destroySession = function(req,res){
+module.exports.destroySession = function (req, res) {
     req.flash('success', 'Logged out Sucessfully');
 
     req.logout();
@@ -149,44 +149,50 @@ module.exports.destroySession = function(req,res){
     return res.redirect('/');
 }
 
-module.exports.Forgotten_password = function(req, res){
+module.exports.Forgotten_password = function (req, res) {
 
-        return res.render('forgotten_password',{
-            title: "Forgotten Password"
-        });
+    return res.render('forgotten_password', {
+        title: "Forgotten Password"
+    });
 
 }
 
-module.exports.find_user = async function(req, res){
+module.exports.find_user = async function (req, res) {
 
-    try{
-        let user = await User.findOne({email: req.body.email})
-    
-       return res.render('verify_account',{
-           title: "Reset Password",
-           user:user
-       });
+    try {
+        let user = await User.findOne({ email: req.body.email })
+
+        return res.render('verify_account', {
+            title: "Reset Password",
+            user: user
+        });
     }
-    catch(err){
-        res.flash("error","No Results Found");
+    catch (err) {
+        res.flash("error", "No Results Found");
         return;
     }
 
 }
- 
-module.exports.send_mail =  async function(req, res){
 
-    try{
-        resetPasswordMailer.passwordResetMail(req.body.email);
-        let user = await User.findOne({email: req.body.email})
-    
-       return res.render('verify_account',{
-           title: "Reset Password",
-           user:user
-       });
+module.exports.send_mail = async function (req, res) {
+
+    try {
+
+        console.log()
+        if (req.xhr) {
+            
+            resetPasswordMailer.passwordResetMail(req.body.email);
+
+            return res.status(200).json({
+                message: 'Mail Sent Sucessfully'
+            });
+        }
+
+        req.flash('success', 'Mail Sent');
+        res.redirect('back');
     }
-    catch(err){
-        res.flash("error","No Results Found");
+    catch (err) {
+        res.flash("error", "Mail Couldn't be Sent");
         return;
     }
 
