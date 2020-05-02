@@ -8,7 +8,6 @@
 
     sendEmail(email){
         this.mailSendForm.submit(function(e){
-            console.log(e);
             e.preventDefault();
 
             $.ajax({
@@ -16,7 +15,7 @@
                 url: '/users/send-mail',
                 data: $(this).serialize(),
                 success: function (data) {
-                    console.log(data);
+                    console.log('js file',data);
                     $('#notification').css("display", "block");
                     $(".container").css("padding-top","3%");
                 }, error: function (error) {

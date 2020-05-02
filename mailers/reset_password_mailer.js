@@ -1,9 +1,21 @@
 const nodeMailer = require('../config/nodemailer');
+const User = require('../models/user');
+const password = require('../models/reset_password');
+const crypto = require('crypto');
 
-exports.passwordResetMail = (useremail) => {
-    let htmlString =nodeMailer.renderTemplate({resetPassword: useremail}, '/password/resetPassword.ejs')
+exports.passwordResetMail = async function(useremail) {
 
-    console.log(useremail);
+    let userinfo = await User.findOne({email: useremail});
+
+    let accesstoken = crypto.randomBytes(20).toString('hex');
+
+    let oneTimeAccess = await password.create({
+        user : userinfo._id,
+        accesstoken: accesstoken,
+        isvalid: true
+    });
+
+    let htmlString =nodeMailer.renderTemplate({oneTimeAccess}, '/password/resetPassword.ejs')
 
     nodeMailer.transporter.sendMail({
         from: 'sagargupta1417@gmail.com',

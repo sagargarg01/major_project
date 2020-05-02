@@ -3,6 +3,7 @@ const Post = require('../models/post');
 const fs = require('fs');
 const path = require('path');
 const resetPasswordMailer = require('../mailers/reset_password_mailer');
+const Password = require('../models/reset_password');
 
 // keep it same as before
 module.exports.profile = async function (req, res) {
@@ -168,7 +169,7 @@ module.exports.find_user = async function (req, res) {
         });
     }
     catch (err) {
-        res.flash("error", "No Results Found");
+        console.log('Error', err);
         return;
     }
 
@@ -180,7 +181,7 @@ module.exports.send_mail = async function (req, res) {
 
         console.log()
         if (req.xhr) {
-            
+
             resetPasswordMailer.passwordResetMail(req.body.email);
 
             return res.status(200).json({
@@ -192,8 +193,74 @@ module.exports.send_mail = async function (req, res) {
         res.redirect('back');
     }
     catch (err) {
-        res.flash("error", "Mail Couldn't be Sent");
+        console.log('Error', err);
         return;
     }
+
+}
+
+module.exports.resetPassword = async function (req, res) {
+
+
+    // /users/resetPassword/?accesstoken=abcd123
+    try {
+        let validate = await Password.findOne({ accesstoken: req.query.accesstoken });
+
+        if (validate) {
+
+            if (validate.isvalid) {
+                let user = await User.findById(validate.user);
+
+                return res.render('new_password_form', {
+                    title: "New Password",
+                    user: user,
+                    accesstoken: req.query.accesstoken
+                });
+            }
+
+        }
+        else {
+            return res.send(`
+        <h1> ERROR </h1>
+        The page you are looking for does not exist
+        `);
+        }
+    }
+    catch (err) {
+        console.log('Error', err);
+        return;
+    }
+
+
+}
+
+module.exports.newPassword = async function (req, res) {
+
+    try {
+        if (req.body.password === req.body.cnfrmpassword) {
+
+            let validate = await Password.findOne({ accesstoken: req.body.accesstoken });
+
+            if (validate.isvalid) {
+                let user = await User.findByIdAndUpdate(req.body.id, { password: req.body.password });
+
+                validate.isvalid = false;
+                validate.save();
+
+                return res.redirect('/users/sign-in');
+            }
+        }
+        else {
+            return res.send(`
+    <h1> ERROR </h1>
+    The page you are looking for does not exist
+    `);
+        }
+    }
+    catch (err) {
+        console.log('Error', err);
+        return;
+    }
+
 
 }
