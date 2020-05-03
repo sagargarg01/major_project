@@ -32,23 +32,23 @@
                 <h5 class="card-title text-center"><%= locals.user.name %></h5>
             </div>
         </a>
- 
+
         <div class="text-muted small friendlist">
             <span>
-                  friendlist
+                friendlist
             </span>
-           <span class="length">
-               <%= locals.user.friendships.length %>
-           </span>
+            <span class="length">
+                <%= locals.user.friendships.length %>
+            </span>
         </div>
 
         <div class="text-muted small friendlist">
             <span>
-                  email
+                email
             </span>
-           <span class="length">
-               <%= locals.user.email%>
-           </span>
+            <span class="length">
+                <%= locals.user.email%>
+            </span>
         </div>
 
     </div>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </form>
-            <% } %>
+
             <!-- Post ///// -->
             <div id="post-list-container">
 
@@ -102,7 +102,7 @@
         <!-- changinf this &********************** -->
         <div class="friends list-group list-group-flush">
             <h4>FRIENDS</h4>
-            <% if(locals.user){ %>
+
             <% for(let friends of friendships){ %>
 
             <p class="list-group-item">
@@ -115,7 +115,7 @@
             </p>
 
             <% } %>
-            <% } %>
+
         </div>
 
         <div class="users list-group">
@@ -133,9 +133,42 @@
         </div>
     </section>
 
+</div>
+
+
+<% }else{ %>
+
+
+<div class="welcome">
+
+
+    <div style="text-align: center; padding-top: 20%;">
+        WELCOME HERE !
+    </div>
 
 
 </div>
+
+
+
+<% } %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
 <script src="<%= assetPath('js/home_posts.js') %>"></script>
 

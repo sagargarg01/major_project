@@ -216,6 +216,11 @@ module.exports.resetPassword = async function (req, res) {
                     user: user,
                     accesstoken: req.query.accesstoken
                 });
+            }else {
+                return res.send(`
+        <h1> ERROR </h1>
+        The page you are looking for does not exist
+        `);
             }
 
         }
@@ -248,6 +253,11 @@ module.exports.newPassword = async function (req, res) {
                 validate.save();
 
                 return res.redirect('/users/sign-in');
+            }else {
+                return res.send(`
+        <h1> ERROR </h1>
+        The page you are looking for does not exist
+        `);
             }
         }
         else {

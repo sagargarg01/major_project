@@ -1,14 +1,7 @@
 const Post = require('../models/post');
 const User = require('../models/user');
 
-     //req.cookies ka console log
-
-module.exports.welcome = function(req,res){
-
-    return res.render('welcome',{
-        title: "Social Garg"
-    })
-}
+     //req.cookies ka console lo
 
 module.exports.home = async function(req,res){
 
