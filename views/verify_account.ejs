@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/verify_account.css">
+<link rel="stylesheet" href="<%= assetPath('css/verify_account.css') %>">
 
 <div class="cont-noti">
     <div class="card small" id="notification">
@@ -24,7 +24,7 @@
                 <% if(user.avatar){ %>
                 <img class="rounded mx-auto d-block" width="100" src="<%= user.avatar %>" alt="">
                 <% } else{ %>
-                <img class="rounded mx-auto d-block" width="100" src="/images/no_profile.jpg" alt="">
+                <img class="rounded mx-auto d-block" width="100" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                 <% } %>
 
                 <div class="name">
@@ -51,7 +51,7 @@
 </div>
 
 
-<script src="/js/forgot_password.js"></script>
+<script src="<%= assetPath('js/forgot_password.js') %>"></script>
 <script>
     $('.send_email').click(function () {
         let self = this; console.log(self)

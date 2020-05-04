@@ -19,7 +19,7 @@
     <% if(profile_users.avatar){ %>
     <img class="rounded-circle" width="140" src="<%= profile_users.avatar %>" alt="">
     <% } else{ %>
-    <img class="rounded-circle" width="140" src="/images/no_profile.jpg" alt="">
+    <img class="rounded-circle" width="140" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
     <% } %>
   </div>
   <span class="name">

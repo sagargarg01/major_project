@@ -162,11 +162,19 @@ module.exports.find_user = async function (req, res) {
 
     try {
         let user = await User.findOne({ email: req.body.email })
+        
+        if(user){
+         return res.render('verify_account', {
+                    title: "Reset Password",
+                    user: user
+                });
+        }
+        else{
+            req.flash('error', 'No User Found');
+            return res.redirect('back');
+        }
 
-        return res.render('verify_account', {
-            title: "Reset Password",
-            user: user
-        });
+        
     }
     catch (err) {
         console.log('Error', err);

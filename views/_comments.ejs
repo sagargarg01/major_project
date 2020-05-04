@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/comments.css">
+<link rel="stylesheet" href="<%= assetPath('css/comments.css') %>">
 
 <li id="comment-<%= comment._id %>">
 
@@ -7,7 +7,7 @@
                 <% if(comment.user.avatar){ %>
                     <img class="rounded-circle" width="39" src="<%= comment.user.avatar %>" alt="">
                     <% } else{ %>
-                    <img class="rounded-circle" width="39" src="/images/no_profile.jpg" alt="">
+                    <img class="rounded-circle" width="39" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                     <% } %>
             <div class="comment-content ml-2">
             <a href="/users/profile/<%= comment.user.id %>" class="font-weight-bold">

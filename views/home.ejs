@@ -24,7 +24,7 @@
                 <% if(locals.user.avatar){ %>
                 <img class="rounded-circle mx-5" width="70" src="<%= locals.user.avatar %>" alt="">
                 <% } else{ %>
-                <img class="rounded-circle mx-5" width="60" src="/images/no_profile.jpg" alt="">
+                <img class="rounded-circle mx-5" width="60" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                 <% } %>
             </div>
 
@@ -109,7 +109,7 @@
                 <% if(friends.avatar){ %>
                 <img class="rounded-circle" width="45" src="<%= friends.avatar %>" alt="">
                 <% } else{ %>
-                <img class="rounded-circle" width="45" src="/images/no_profile.jpg" alt="">
+                <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                 <% } %>
                 <a class="ml-2" href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
             </p>
@@ -141,9 +141,13 @@
 
 <div class="welcome">
 
+    <img class="img-fluid" src="<%= assetPath('images/welcome.svg') %>" alt="">
 
-    <div style="text-align: center; padding-top: 20%;">
-        WELCOME HERE !
+    <div class="welcome_text">
+        WELCOME TO SOCIAL GARG !
+        <div style="margin-left: 60px;">
+            (-By SAGAR GARG)
+        </div>
     </div>
 
 

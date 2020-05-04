@@ -1,0 +1,69 @@
+body {
+  background-color: #eeeeee; }
+  body a:hover {
+    text-decoration: none; }
+  body .user-profile {
+    height: 300px;
+    width: 70%;
+    margin-left: 40px;
+    border-radius: 0px !important; }
+    body .user-profile .cover-image {
+      height: 85%;
+      width: 100%;
+      background: linear-gradient(14deg, #22c1c3 27%, #fdbb2d 90%); }
+    body .user-profile .profile-picture {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      border: 4px solid white;
+      border-radius: 100px; }
+    body .user-profile .name {
+      position: absolute;
+      bottom: 70px;
+      left: 200px;
+      font-size: xx-large;
+      font-weight: bolder;
+      color: white;
+      font-family: sans-serif;
+      text-shadow: 6px 0px 28px #96969a;
+      text-transform: capitalize; }
+    body .user-profile .side-button {
+      position: absolute;
+      bottom: 70px;
+      right: 20px; }
+      body .user-profile .side-button button {
+        border: 1px solid rgba(0, 0, 0, 0.562);
+        color: rgba(0, 0, 0, 0.75);
+        font-weight: bold;
+        border-radius: 2px;
+        padding: 3px 10px 3px 10px; }
+      body .user-profile .side-button button:hover {
+        cursor: pointer; }
+    body .user-profile .bottom-list {
+      font-family: sans-serif;
+      width: 100%;
+      height: 15%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center; }
+      body .user-profile .bottom-list .item {
+        border-left: 1px solid lightgray;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px; }
+        body .user-profile .bottom-list .item button {
+          text-transform: capitalize;
+          border: none;
+          background: none;
+          color: #080877;
+          font-weight: bold; }
+        body .user-profile .bottom-list .item button:hover {
+          cursor: pointer; }
+        body .user-profile .bottom-list .item button:focus {
+          outline: none; }
+      body .user-profile .bottom-list .item:hover {
+        background: rgba(0, 0, 0, 0.0666667); }
+  body .tl {
+    display: inline-block;
+    margin-left: 20%;
+    padding: 15px; }
