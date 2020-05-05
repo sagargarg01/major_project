@@ -14,42 +14,45 @@
 
 <% if(locals.user){ %>
 <div id="home-container" class="container-fluid">
-    <div class="empty card ml-3 ">
-        <div class="cover-picture">
-            <!-- will add a cover picure upload functionality -->
-        </div>
-
-        <a href="/users/profile/<%= locals.user.id %>" class="locals-user-link">
-            <div class="user-pic">
-                <% if(locals.user.avatar){ %>
-                <img class="rounded-circle mx-5" width="70" src="<%= locals.user.avatar %>" alt="">
-                <% } else{ %>
-                <img class="rounded-circle mx-5" width="60" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
-                <% } %>
+    <div class="empty">
+        <div class="inner card ml-3">
+            <div class="cover-picture">
+                <!-- will add a cover picure upload functionality -->
             </div>
 
-            <div class="card-body text-capitalize">
-                <h5 class="card-title text-center"><%= locals.user.name %></h5>
+            <a href="/users/profile/<%= locals.user.id %>" class="locals-user-link">
+                <div class="user-pic">
+                    <% if(locals.user.avatar){ %>
+                    <img class="rounded-circle mx-5" width="70" src="<%= locals.user.avatar %>" alt="">
+                    <% } else{ %>
+                    <img class="rounded-circle mx-5" width="60" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
+                    <% } %>
+                </div>
+
+                <div class="card-body text-capitalize">
+                    <h5 class="card-title text-center"><%= locals.user.name %></h5>
+                </div>
+            </a>
+
+            <div class="text-muted small friendlist">
+                <span>
+                    friendlist
+                </span>
+                <span class="length">
+                    <%= locals.user.friendships.length %>
+                </span>
             </div>
-        </a>
 
-        <div class="text-muted small friendlist">
-            <span>
-                friendlist
-            </span>
-            <span class="length">
-                <%= locals.user.friendships.length %>
-            </span>
+            <div class="text-muted small friendlist">
+                <span>
+                    email
+                </span>
+                <span class="length">
+                    <%= locals.user.email%>
+                </span>
+            </div>
         </div>
 
-        <div class="text-muted small friendlist">
-            <span>
-                email
-            </span>
-            <span class="length">
-                <%= locals.user.email%>
-            </span>
-        </div>
 
     </div>
 
@@ -93,6 +96,7 @@
 
                 <% } %>
 
+
             </div>
         </div>
     </div>
@@ -100,37 +104,49 @@
 
     <section id="user-friends">
         <!-- changinf this &********************** -->
-        <div class="friends list-group list-group-flush">
-            <h4>FRIENDS</h4>
 
-            <% for(let friends of friendships){ %>
+        <div class="inner">
+            <div class="friends list-group">
+                <h4>FRIENDS</h4>
 
-            <p class="list-group-item">
-                <% if(friends.avatar){ %>
-                <img class="rounded-circle" width="45" src="<%= friends.avatar %>" alt="">
-                <% } else{ %>
-                <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
-                <% } %>
-                <a class="ml-2" href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
-            </p>
+                <div class="box-size">
+                    <% for(let friends of friendships){ %>
 
-            <% } %>
+                    <p class="list-group-item">
+                        <% if(friends.avatar){ %>
+                        <img class="rounded-circle" width="45" src="<%= friends.avatar %>" alt="">
+                        <% } else{ %>
+                        <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
+                        <% } %>
+                        <a class="ml-2" href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
+                    </p>
 
+                    <% } %>
+                </div>
+
+
+            </div>
+
+            <div class="users list-group">
+                <h4>ALL USERS</h4>
+
+                <div class="box-size">
+                    <% for(u of all_users){%>
+                    <p class="list-group-item">
+                        <% if(u.avatar){ %>
+                        <img class="rounded-circle" width="45" src="<%= u.avatar %>" alt="">
+                        <% } else{ %>
+                        <img class="rounded-circle" width="45" src="/images/no_profile.jpg" alt="">
+                        <% } %>
+                        <a class="ml-2" href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+                    </p>
+                    <% } %>
+                </div>
+
+            </div>
         </div>
 
-        <div class="users list-group">
-            <h4>ALL USERS</h4>
-            <% for(u of all_users){%>
-            <p class="list-group-item">
-                <% if(u.avatar){ %>
-                <img class="rounded-circle" width="45" src="<%= u.avatar %>" alt="">
-                <% } else{ %>
-                <img class="rounded-circle" width="45" src="/images/no_profile.jpg" alt="">
-                <% } %>
-                <a class="ml-2" href="/users/profile/<%= u.id %>"> <%= u.name %></a>
-            </p>
-            <% } %>
-        </div>
+
     </section>
 
 </div>
@@ -174,12 +190,12 @@
 
 
 <script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
-<script src="<%= assetPath('js/home_posts.js') %>"></script>
 
 
 <script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function () {
+        console.log(this);
         let self = this;
         let toggleLike = new ToggleLike(self);
     });

@@ -1,4 +1,21 @@
 {
+
+
+
+
+
+
+// i don't think creating post as ajax is a good idea , its not
+// we will see about that in future
+
+
+
+
+
+
+
+
+
     //method to submit the form data for new post using AJAX
     let createPost = function () {
         let newPostform = $('#new-post-form');
@@ -12,7 +29,7 @@
                 data: newPostform.serialize(),
                 success: function (data) {
                     let newPost = newPostDom(data.data.post);
-                    $('#post-list-container>ul').prepend(newPost);
+                    $('#post-list-container>div').prepend(newPost);
                     deletePost($(' .delete-post-button', newPost));
 
                     // call the create comment class
@@ -39,44 +56,125 @@
 
     //method to create a post using DOM
     let newPostDom = function (post) {
-        return $(`<li id="post-${post._id}">
-                <p>
-                    
-                    <small>
-                        <a class="delete-post-button" href="/posts/destroy/${post._id}"> X </a>
-                    </small>
-            
-                    ${ post.content}
-                    <br>
-                    <small>
-                        ${ post.user.name}
-                    </small>
-                    <br>
-                    <small>
-                        
-                            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
-                                0 Likes
-                            </a>
-                        
-                    </small>
-                </p>
-                <div class="post-comments">
-                  
-                        <form action="/comments/create" method="POST" id="post-${post._id }-comments-form">
-                        <input type="text" name="content" placeholder="Type Here to add comment..." required>
-                        <input type="hidden" name="post" value="${ post._id}" >
-                        <input type="submit" value="Add Comment">
-            
-                        </form>
-                       
-            
-                        <div class="post-comments-list">
-                            <ul id="post-comments-${ post._id}">
-            
-                            </ul>  
-                       </div>
+        return $(`
+        <li id="post- ${post._id}">
+        
+            <div class="card post">
+        
+                <!-- head for the post -->
+                <div class="card-header">
+                   
+                    <div class="d-flex justify-content-between align-items-center">
+        
+                        <a href="/users/profile/${post.user.id}" class="text-dark">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="mr-2">
+                                    ${post.user.avatar}
+                                    <img class="rounded-circle" width="45" src="${post.user.avatar}" alt="">
+                                   
+                                    <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
+                                     
+                                </div>
+                                <div class="ml-2">
+                                    <div class="h5 m-0 text-capitalize">${post.user.name}</div>
+                                    <div class="h7 text-muted">${post.user.email}</div>
+                                </div>
+                            </div>
+                        </a>
+        
+                        <div class="dropdown">
+                            <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                <div class="h6 dropdown-header">Configuration</div>
+                                <a class="dropdown-item" href="#">Save</a>
+                                <% if(locals.user.id == post.user.id){ %>
+                                <a class="delete-post-button dropdown-item" href="/posts/destroy/${post.id}"> Delete </a>
+                                <% } %>
+                                <a class="dropdown-item" href="#">Report</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </li>`)
+        
+                <!-- post body -->
+                <div class="card-body card-post">
+                    <small>
+                        <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> &nbsp; <span id="created">
+                                ${post.createdAt} </span> </div>
+                    </small>
+        
+                    <p class="card-text">
+                    ${post.content}
+                    </p>
+        
+                    <small class="text-muted" id="likes-count-<%= post._id %>" data-likes="<%= post.likes.length %>">
+                        if(${post.likes.length} > 0){
+                        <img src="/images/like.png" class="rounded-circle" width="30">
+                        ${post.likes.length}
+                         } 
+                    </small>
+        
+                    <span class="comments">
+                        <small class="text-muted">
+                             if( ${post.comments.length} > 0){
+                                    
+                                if(${post.comments.length} == 1){ 
+                                    ${post.comments.length} comment
+                                }else{ 
+                                    ${post.comments.length} comments
+                               } 
+                            } 
+                           
+                        </small>
+                    </span>
+                </div>
+        
+                <!-- post footer -->
+                <div class="card-footer">
+        
+                   if(${post.likes.find(x=> x.user == locals.user.id)}){ 
+                    <a class="toggle-like-button card-link" id="put-like-${post._id}"
+                        href="/likes/toggle/?id=${post._id}"> <i class="fas fa-thumbs-up"></i> Like </a>
+        
+                     } else{ 
+                    <a class="toggle-like-button card-link" id="put-like-${post._id}"
+                        href="/likes/toggle/?id=${post._id}"> <i class="far fa-thumbs-up"></i> Like </a>
+                     } 
+        
+                    <a class="card-link" data-toggle="collapse" href="#comment-${post._id}" role="button"
+                        aria-expanded="false" aria-controls="collapseExample"><i class="far fa-comment"></i> Comment</a>
+                    <div class="collapse mt-2" id="comment-${post._id}">
+                        <div class="card card-body">
+        
+                            <!-- comment functionality -->
+                            <div class="post-comments">
+                                <form id="post-${post._id}-comments-form" action="/comments/create" method="POST">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="content" placeholder="Add a comment..."
+                                            required>
+                                    </div>
+                                    <input type="hidden" name="post" value="${post._id}">
+        
+                                </form>
+        
+                                <div class="post-comments-list">
+                                    <ul id="post-comments-${post._id}">
+                                        
+                                    </ul>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        
+        </li>
+        `)
     }
 
 

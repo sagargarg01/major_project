@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/posts.css">
+<link rel="stylesheet" href="<%= assetPath('css/posts.css') %>">
 
 <li id="post-<%= post._id %>">
 
@@ -15,7 +15,7 @@
                             <% if(post.user.avatar){ %>
                             <img class="rounded-circle" width="45" src="<%= post.user.avatar %>" alt="">
                             <% } else{ %>
-                            <img class="rounded-circle" width="45" src="/images/no_profile.jpg" alt="">
+                            <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                             <% } %>
                         </div>
                         <div class="ml-2">
@@ -121,3 +121,8 @@
     </div>
 
 </li>
+
+
+<script>
+    $('#post-<%= post._id %>-comments-form')
+</script>

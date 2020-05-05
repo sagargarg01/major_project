@@ -8,7 +8,7 @@ background-color: #eeeeee;
 
     .user-profile{
         height: 300px;
-        width: 70%;
+        width: 850px;
         margin-left: 40px;
         border-radius: 0px !important;
 
@@ -43,7 +43,6 @@ background-color: #eeeeee;
             position: absolute;
             bottom: 70px;
             right: 20px;
-          
         
             button{
                 border: 1px solid rgba(0, 0, 0, 0.562);
@@ -55,6 +54,14 @@ background-color: #eeeeee;
 
             button:hover{
                 cursor: pointer;
+            }
+
+            .close{
+                border: none;
+            }
+
+            .close:focus{
+                outline: none;
             }
         }
 
@@ -99,5 +106,6 @@ background-color: #eeeeee;
       display: inline-block;
       margin-left: 20%;
       padding: 15px;
+      width: 650px;
     }
 }

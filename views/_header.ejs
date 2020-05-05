@@ -1,33 +1,40 @@
 <header>
-    <div class="head">
-        Codeial
+
+    <div class="inner">
+        <div class="head">
+            <a href="/">Social Garg</a>
+        </div>
+
+        <% if(locals.user){ %>
+
+        <div class="head-container">
+
+            <div class="text">
+                <a href="/users/profile/<%= locals.user.id %>">
+                    <%= user.name %>
+                </a>
+            </div>
+
+            <div class="text">
+                <a href="/users/sign-out">Sign Out</a>
+            </div>
+        </div>
+
+        <% }else{ %>
+        <div class="head-container">
+            <div class="text">
+                <a href="/users/sign-in">Sign In</a>
+            </div>
+            <div class="text">
+                <a href="/users/sign-up">Sign Up</a>
+            </div>
+        </div>
+
+        <% } %>
     </div>
 
     <% if(locals.user){ %>
-        
-    <div class="head-container">
-
-        <div class="text">
-            <a href="/users/profile/<%= locals.user.id %>">
-                <%= user.name %>
-            </a>
-        </div>
-
-        <div class="text">
-            <a href="/users/sign-out">Sign Out</a>
-        </div>
-    </div>
-
-    <% }else{ %>
-    <div class="head-container">
-        <div class="text">
-            <a href="/users/sign-in">Sign In</a>
-        </div>
-        <div class="text">
-            <a href="/users/sign-up">Sign Up</a>
-        </div>
-    </div>
-
+    <div class="bar"></div>
     <% } %>
 
 </header>
