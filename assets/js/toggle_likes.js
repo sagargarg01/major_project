@@ -38,7 +38,7 @@ class ToggleLike {
                             $(`#put-like-${data.data.post._id}`).html('<i class="far fa-thumbs-up"></i> Like')
                          }
 
-                            $(`#likes-count-${data.data.post._id}`).html(`<img src="/images/like.png" 
+                            $(`#likes-count-${data.data.post._id}`).html(`<img src="<%= assetPath('images/like.png') %>" 
                             data-likes="<%= post.likes.length %>" id="count" class="rounded-circle" width="30" > ${likesCount}`);
                     }
                     else {
