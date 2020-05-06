@@ -22,8 +22,8 @@ const development = {
         secure: false,
         //change it 
         auth: {
-            user: 'sagargupta1417@gmail.com',
-            pass: 'beat9711181457'
+            user: process.env.CODEIAL_GMAIL_USERNAME,
+            pass: process.env.CODEIAL_GMAIL_PASSWORD
         }
     },
     google_client_id: "396921753627-pcndn1gv2fcktrpupapgl0cikced4osl.apps.googleusercontent.com",

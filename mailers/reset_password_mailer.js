@@ -18,7 +18,7 @@ exports.passwordResetMail = async function(useremail) {
     let htmlString =nodeMailer.renderTemplate({oneTimeAccess}, '/password/resetPassword.ejs')
 
     nodeMailer.transporter.sendMail({
-        from: 'sagargupta1417@gmail.com',
+        from: 'SOCIAL GARG',
         to: useremail,
         subject: 'Change Your Password',
         html: htmlString
