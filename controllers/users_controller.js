@@ -23,7 +23,7 @@ module.exports.profile = async function (req, res) {
             }).populate('likes');
 
 
-        let friends = await User.find({friendships: req.params.id})
+        let friends = await User.find({ friendships: req.params.id })
 
 
         return res.render('user', {
@@ -167,19 +167,19 @@ module.exports.find_user = async function (req, res) {
 
     try {
         let user = await User.findOne({ email: req.body.email })
-        
-        if(user){
-         return res.render('verify_account', {
-                    title: "Reset Password",
-                    user: user
-                });
+
+        if (user) {
+            return res.render('verify_account', {
+                title: "Reset Password",
+                user: user
+            });
         }
-        else{
+        else {
             req.flash('error', 'No User Found');
             return res.redirect('back');
         }
 
-        
+
     }
     catch (err) {
         console.log('Error', err);
@@ -229,7 +229,7 @@ module.exports.resetPassword = async function (req, res) {
                     user: user,
                     accesstoken: req.query.accesstoken
                 });
-            }else {
+            } else {
                 return res.send(`
         <h1> ERROR </h1>
         The page you are looking for does not exist
@@ -266,7 +266,7 @@ module.exports.newPassword = async function (req, res) {
                 validate.save();
 
                 return res.redirect('/users/sign-in');
-            }else {
+            } else {
                 return res.send(`
         <h1> ERROR </h1>
         The page you are looking for does not exist

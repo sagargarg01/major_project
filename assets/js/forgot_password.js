@@ -18,6 +18,8 @@
                     console.log('js file',data);
                     $('#notification').css("display", "block");
                     $(".container").css("padding-top","3%");
+                    email.type = "button";
+                    
                 }, error: function (error) {
                     console.log(error.responseText);
                 }

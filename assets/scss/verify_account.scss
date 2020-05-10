@@ -3,7 +3,7 @@
 }
 
 .cont-noti{
-    padding-top: 15px;
+    padding-top: 30px;
     
     #notification{
         display: none;
@@ -76,5 +76,16 @@
                 color: white;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 420px) {
+
+    .card{
+        width: 95vw !important;
+    }
+
+    .rounded{
+        padding-top: 20px !important;
     }
 }
