@@ -41,3 +41,15 @@ header {
 @media only screen and (max-width: 420px) {
   .inner {
     width: 100vw !important; } }
+
+@media only screen and (max-width: 400px) {
+  .head {
+    font-size: 25px !important;
+    padding-bottom: 0px !important;
+    padding-top: 14px !important; } }
+
+@media only screen and (max-width: 320px) {
+  .head {
+    font-size: 18px !important;
+    padding-bottom: 0px !important;
+    padding-top: 20px !important; } }

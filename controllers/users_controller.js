@@ -22,10 +22,15 @@ module.exports.profile = async function (req, res) {
                 }
             }).populate('likes');
 
+
+        let friends = await User.find({friendships: req.params.id})
+
+
         return res.render('user', {
             title: user.name,
             profile_users: user,
-            posts: posts
+            posts: posts,
+            friendships: friends
         });
 
     } catch (err) {

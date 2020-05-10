@@ -51,7 +51,11 @@
     }
 
     .posts{
-        max-width: 550px;
+        max-width: 500px;
+
+        .posts-size{
+            max-width: 500px;
+        }
     }
 
     #user-friends{
@@ -157,4 +161,13 @@
        }
     }
 
+    .posts-size{
+        width: 95vw !important;
+        margin: 0px !important;
+    }
+
+    #home-container {
+        padding-top: 7% !important;
+    }
 }
+

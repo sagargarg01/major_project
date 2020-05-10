@@ -132,7 +132,7 @@
 
     <div class="friends item">
       <button onclick="showFriends()">
-        friends
+        friends <span class="small text-muted">(<%= friendships.length %>)</span>
       </button>
     </div>
 
@@ -156,11 +156,34 @@
 </div>
 
 <div id="user-about" style="display: none;">
-  About
+  
+  No Information Available
+
 </div>
 
 <div id="user-friends" style="display: none;">
-  friends
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title"> <i class="fas fa-user-friends"></i> Friends</h5>
+      <div class="box-size">
+    <% for(let friends of friendships){ %>
+
+    <p class="list-group-item">
+        <% if(friends.avatar){ %>
+        <img class="rounded-circle" width="45" src="<%= friends.avatar %>" alt="">
+        <% } else{ %>
+        <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
+        <% } %>
+        <a class="ml-2" href="/users/profile/<%= friends.id %>"> <%= friends.name %> </a>
+    </p>
+
+    <% } %>
+</div>
+    </div>
+    
+  </div>
+  
 </div>
 
 

@@ -32,7 +32,9 @@
         text-transform: lowercase;
         float: right; }
   #home-container .posts {
-    max-width: 550px; }
+    max-width: 500px; }
+    #home-container .posts .posts-size {
+      max-width: 500px; }
   #home-container #user-friends {
     text-transform: capitalize;
     width: 30%;
@@ -89,4 +91,9 @@
     .welcome_text span {
       display: block; }
     .welcome_text .underline {
-      margin-left: -20px !important; } }
+      margin-left: -20px !important; }
+  .posts-size {
+    width: 95vw !important;
+    margin: 0px !important; }
+  #home-container {
+    padding-top: 7% !important; } }
