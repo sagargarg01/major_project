@@ -11,3 +11,7 @@ li {
     li .card-post .comments {
       float: right;
       margin-right: 10px; }
+
+@media only screen and (max-width: 320px) {
+  .email {
+    font-size: small; } }
