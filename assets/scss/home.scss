@@ -108,10 +108,14 @@
         font-family: 'Times New Roman', Times, serif;
         font-size: x-large;
         font-weight: bold;
-        color: wheat;
+        color: white;
         position: absolute;
         top:40%;
         left: 35%;
+
+        .underline{
+            margin-left: 60px;
+        }
     }
 }
 
@@ -138,3 +142,19 @@
 
 }
 
+@media only screen and (max-width: 420px) {
+
+    .welcome_text{
+       left: 25% !important;
+       color: black !important;
+
+       span{
+           display: block;
+       }
+
+       .underline{
+           margin-left: -20px !important;
+       }
+    }
+
+}

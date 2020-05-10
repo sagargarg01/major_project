@@ -9,6 +9,7 @@
         margin-top: 4%;
         margin-bottom: 4%;
         height: 470px;
+        width: 50vw;
         padding: 30px;
         padding-right: 15px;
         padding-left: 15px;
@@ -129,10 +130,10 @@
             .login-logo img {
                 margin-top: -267px;
                 position: absolute;
-                width: 20%;
+                width: 10vw;
                 background: linear-gradient(45deg, #060555 50%, rgb(4, 56, 116) 100%);
                 border-radius: 100px;
-                padding: 5%;
+                padding: 32px;
             }
         }
         
@@ -147,6 +148,36 @@
 
 
 
+@media only screen and (max-width: 420px) {
+
+    .login-form {
+        margin-top: 12% !important;
+        height: 75vh !important;
+        width: 90vw  !important;
+        border-radius: 40px !important;
+    }
+
+   .login-logo img {
+        margin-top: -315px !important;
+        width: 25vw !important;
+        padding: 22px !important;
+   }
+
+   .g-btn{
+       display: block;
+       margin-bottom: 25px;
+   }
+   
+   .google{
+        margin: 0px !important;
+        padding-right: 25px !important;
+    }
+
+    .btnSubmit {
+        height: 40px;
+    }
+
+}
 
 
 

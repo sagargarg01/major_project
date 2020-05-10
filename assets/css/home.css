@@ -65,10 +65,12 @@
   font-family: 'Times New Roman', Times, serif;
   font-size: x-large;
   font-weight: bold;
-  color: wheat;
+  color: white;
   position: absolute;
   top: 40%;
   left: 35%; }
+  .welcome .welcome_text .underline {
+    margin-left: 60px; }
 
 @media only screen and (max-width: 882px) {
   .empty {
@@ -79,3 +81,12 @@
     display: none; }
   #home-container {
     justify-content: space-around; } }
+
+@media only screen and (max-width: 420px) {
+  .welcome_text {
+    left: 25% !important;
+    color: black !important; }
+    .welcome_text span {
+      display: block; }
+    .welcome_text .underline {
+      margin-left: -20px !important; } }

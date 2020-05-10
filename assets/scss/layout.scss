@@ -11,3 +11,12 @@ body{
         min-height: 100vh;
     }
 }
+
+
+@media only screen and (max-width: 420px) {
+
+    #layout-main{
+        width: 100% !important;
+    }
+
+}
