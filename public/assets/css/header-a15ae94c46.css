@@ -40,7 +40,9 @@ header {
 
 @media only screen and (max-width: 420px) {
   .inner {
-    width: 100vw !important; } }
+    width: 100vw !important; }
+  .bar {
+    height: 10px !important; } }
 
 @media only screen and (max-width: 400px) {
   .head {

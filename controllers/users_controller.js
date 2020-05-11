@@ -10,7 +10,7 @@ module.exports.profile = async function (req, res) {
 
     try {
 
-        let user = await User.findById(req.params.id);
+        let user = await User.findById(req.params.id); 
 
         let posts = await Post.find({ user: req.params.id })
             .sort('-createdAt')
@@ -21,7 +21,7 @@ module.exports.profile = async function (req, res) {
                     path: 'user likes',
                 }
             }).populate('likes');
-
+            let users = await User.find({});
 
         let friends = await User.find({ friendships: req.params.id })
 
@@ -30,7 +30,8 @@ module.exports.profile = async function (req, res) {
             title: user.name,
             profile_users: user,
             posts: posts,
-            friendships: friends
+            friendships: friends,
+            all_users: users,
         });
 
     } catch (err) {

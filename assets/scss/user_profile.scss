@@ -65,6 +65,18 @@ background-color: #eeeeee;
             }
         }
 
+        .img{
+            margin: auto;
+            margin-top: 20px;
+            width: 70%;
+            display: flex;
+
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+
         .bottom-list{
             font-family: sans-serif;
             width: 100%;
@@ -128,6 +140,18 @@ background-color: #eeeeee;
         }
     }
 
+    #all-users{
+        padding-top: 20px;
+        margin-left: 20%;
+        width: 40vw;
+        text-transform: capitalize;
+
+        .card-title{
+            font-size: x-large;
+            color: #4B4F56;
+        }
+    }
+
 }
 
 
@@ -141,9 +165,9 @@ background-color: #eeeeee;
 @media only screen and (max-width: 420px) {
 
     .user-profile{
-        margin-left: 5px !important;
+        margin-left: 2px !important;
         width: 98vw !important;
-        height: 500px !important;
+        height: 480px !important;
     }
 
     body .user-profile .cover-image {
@@ -221,4 +245,9 @@ background-color: #eeeeee;
         text-transform: capitalize;
     }
 
+    #all-users{
+        margin-left: 0 !important;
+        width: 100vw !important;
+        text-transform: capitalize;
+    }
 }

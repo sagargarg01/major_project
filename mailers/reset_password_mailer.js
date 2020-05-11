@@ -15,6 +15,15 @@ exports.passwordResetMail = async function(useremail) {
         isvalid: true
     });
 
+   
+    let invalid = setTimeout(makeTokenInvalid,600000);
+
+    function makeTokenInvalid(){
+        oneTimeAccess.isvalid = false;
+        oneTimeAccess.save();
+        console.log(oneTimeAccess)
+    }
+
     let htmlString =nodeMailer.renderTemplate({oneTimeAccess}, '/password/resetPassword.ejs')
 
     nodeMailer.transporter.sendMail({
@@ -31,4 +40,5 @@ exports.passwordResetMail = async function(useremail) {
         console.log('message sent', info);
         return;
     });
+
 }
