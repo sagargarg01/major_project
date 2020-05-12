@@ -175,23 +175,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
-
-
 <script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function () {
@@ -199,6 +182,21 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
+
+<!-- post comments -->
+<script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
+<script>
+    $('.postId').each(function(){
+        let self = this;
+        let postid = $(self).attr("value");
+        let newComment = new PostComments(postid)
+    })
+</script>
+
+
+
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 <script src="<%= assetPath('js/chat_engine.js') %>"></script>

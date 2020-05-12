@@ -60,8 +60,8 @@
                 <% } %>
             </small>
 
-            <span class="comments">
-                <small class="text-muted">
+            <span class="comments" >
+                <small class="text-muted" id="post-<%= post._id %>-comment-length">
                     <%  if( post.comments.length > 0){ %>
                             
                       <%  if(post.comments.length == 1){ %>
@@ -99,7 +99,7 @@
                                 <input class="form-control" type="text" name="content" placeholder="Add a comment..."
                                     required>
                             </div>
-                            <input type="hidden" name="post" value="<%= post._id %>">
+                            <input type="hidden" name="post" class="postId" value="<%= post._id %>">
 
                         </form>
 
@@ -121,8 +121,3 @@
     </div>
 
 </li>
-
-
-<script>
-    $('#post-<%= post._id %>-comments-form')
-</script>

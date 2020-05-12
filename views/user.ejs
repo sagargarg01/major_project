@@ -255,7 +255,17 @@
 
 </script>
 
+
+<!-- post comments -->
 <script src="<%= assetPath('js/home_posts_comments.js') %>"></script>
+<script>
+    $('.postId').each(function(){
+        let self = this;
+        let postid = $(self).attr("value");
+        let newComment = new PostComments(postid)
+    })
+</script>
+
 
 <script src="<%= assetPath('js/toggle_likes.js') %>"></script>
 <script>

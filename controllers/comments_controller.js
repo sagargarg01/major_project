@@ -33,11 +33,12 @@ module.exports.create = async function (req, res) {
         //     });
 
             if (req.xhr) {
-                comment = await comment.populate('user', 'name email').execPopulate();
+                comment = await comment.populate('user', 'name email avatar').execPopulate();
 
                 return res.status(200).json({
                     data: {
-                        comment: comment
+                        comment: comment,
+                        post: post
                     },
                     message: 'Comment Created!'
                 });
@@ -72,7 +73,8 @@ module.exports.destroy = async function (req, res) {
             if (req.xhr) {
                 return res.status(200).json({
                     data: {
-                        comment_id: req.params.id
+                        comment_id: req.params.id,
+                        post:post
                     },
                     message: "Comment Deleted"
                 });
