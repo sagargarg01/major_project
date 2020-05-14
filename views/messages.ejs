@@ -4,7 +4,7 @@
 
 <div class="container">
    <div class="messaging">
-      <div class="inbox_msg">
+      <div class="inbox_msg" id="user-chat-box">
          <div class="inbox_people">
             <div class="headind_srch">
                <div class="recent_heading">
@@ -36,10 +36,10 @@
 
 
          <div class="mesgs">
-            <div class="msg_history">
+            <div class="msg_history" id="chat-messages-list">
                <div class="incoming_msg">
                   <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
-                        alt="sunil">
+                        alt="user">
                   </div>
                   <div class="received_msg">
                      <div class="received_withd_msg">
@@ -60,8 +60,8 @@
             </div>
             <div class="type_msg">
                <div class="input_msg_write">
-                  <input type="text" class="write_msg" placeholder="Type a message" />
-                  <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
+                  <input type="text" id="chat-message-input" class="write_msg" placeholder="Type a message" />
+                  <button class="msg_send_btn" id="send-message" type="submit"><i class="fa fa-paper-plane-o"
                         aria-hidden="true"></i></button>
                </div>
             </div>
@@ -70,3 +70,10 @@
 
    </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
+
+<script>
+   new chatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>

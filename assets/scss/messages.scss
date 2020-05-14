@@ -152,7 +152,8 @@ img{
 }
 
 .received_withd_msg {
-   width: 57%;
+  width: auto;
+  max-width: 45%;
 }
 
 .mesgs {
@@ -163,6 +164,10 @@ img{
 
 .msg_history{
   overflow-x: hidden;
+}
+
+.msg_history::-webkit-scrollbar {
+  display: none;
 }
 
  .sent_msg p {
@@ -177,12 +182,14 @@ img{
 }
 
 .outgoing_msg{ 
-   margin:26px 0 26px;
+   margin:10px 0 10px;
+   display: flex;
+   justify-content: flex-end;
 }
 
 .sent_msg {
-  float: right;
-  width: 46%;
+  width: auto;
+  max-width: 46%;
 }
 
 .input_msg_write input {
