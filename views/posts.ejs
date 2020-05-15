@@ -45,8 +45,11 @@
         <!-- post body -->
         <div class="card-body card-post">
             <small>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> &nbsp; <span id="created">
-                        <%= post.createdAt %> </span> </div>
+                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> &nbsp; 
+                    <span id="created" class="post-date">
+                        <%= post.createdAt %>
+                     </span>
+                </div>
             </small>
 
             <p class="card-text">
