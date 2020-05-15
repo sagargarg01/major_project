@@ -602,3 +602,11 @@
 [0mGET / [32m200[0m 36.873 ms - 27318[0m
 [0mGET / [32m200[0m 40.593 ms - 27318[0m
 [0mGET / [32m200[0m 48.988 ms - 27321[0m
+[0mGET / [32m200[0m 209.556 ms - 3698[0m
+[0mGET /users/sign-in [32m200[0m 47.250 ms - 4667[0m
+[0mPOST /users/create-session [36m302[0m 22.409 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 10.294 ms - 4917[0m
+[0mPOST /users/create-session [36m302[0m 15.587 ms - 46[0m
+[0mGET / [32m200[0m 112.587 ms - 28654[0m
+[0mGET /messages/allchats [32m200[0m 11.586 ms - 5341[0m
+[0mGET / [32m200[0m 45.248 ms - 28406[0m
