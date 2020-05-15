@@ -13,21 +13,11 @@ const chatSchema = new mongoose.Schema({
    },
    message: [
       {
-         user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-         },
-
-         content:{
-         type: String,
-         required: true
-         }
+         type: mongoose.Schema.Types.ObjectId,
+         ref: 'Message'
       }
    ]
-},{
-   timestamps: true
 });
 
-const ChatBox = mongoose.model('ChatBox',chatSchema);
+const ChatBox = mongoose.model('ChatBox', chatSchema);
 module.exports = ChatBox;

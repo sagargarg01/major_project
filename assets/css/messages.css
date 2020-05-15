@@ -1,5 +1,9 @@
-.container {
-  width: 98.5vw; }
+#layout-main {
+  background-color: #eeeeee; }
+
+.container-msg {
+  width: 98.5vw;
+  padding: 5px; }
 
 img {
   max-width: 100%; }
@@ -57,6 +61,7 @@ img {
   margin: 0 0 0 -27px; }
 
 .chat_ib h5 {
+  text-transform: capitalize;
   font-size: 15px;
   color: #464646;
   margin: 0 0 8px 0; }
@@ -81,17 +86,23 @@ img {
 
 .chat_people {
   overflow: hidden;
+  padding: 12px;
+  border: 1px solid black;
   display: flex;
-  flex-wrap: nowrap; }
+  flex-wrap: nowrap;
+  align-items: center; }
 
 .chat_list {
   border-bottom: 1px solid #c4c4c4;
   margin: 0;
-  padding: 18px 16px 10px; }
+  padding: 0px 16px 10px; }
 
 .inbox_chat {
   height: 550px;
   overflow-y: scroll; }
+
+.inbox_chat::-webkit-scrollbar {
+  display: none; }
 
 .active_chat {
   background: #ebebeb; }
@@ -131,6 +142,7 @@ img {
 
 .mesgs {
   padding: 30px 15px 0 25px;
+  background: white;
   width: 60%;
   position: relative; }
 

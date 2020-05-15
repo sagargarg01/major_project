@@ -1,5 +1,10 @@
-.container{
+#layout-main{
+  background-color: #eeeeee;
+}
+
+.container-msg{
   width:98.5vw;
+  padding: 5px;
 }
 
 img{
@@ -69,9 +74,10 @@ img{
 }
 
 .chat_ib h5{ 
+  text-transform: capitalize;
   font-size:15px;
-   color:#464646;
-    margin:0 0 8px 0;
+  color:#464646;
+  margin:0 0 8px 0;
 }
 
 .chat_ib h5 span{
@@ -98,19 +104,27 @@ img{
 
 .chat_people{ 
   overflow:hidden; 
+  padding: 12px;
+  border: 1px solid black;
+  // border-bottom: 1px solid lightgray;
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
 }
 
 .chat_list {
   border-bottom: 1px solid #c4c4c4;
   margin: 0;
-  padding: 18px 16px 10px;
+  padding: 0px 16px 10px;
 }
 
 .inbox_chat {
    height: 550px; 
    overflow-y: scroll;
+}
+
+.inbox_chat::-webkit-scrollbar {
+  display: none;
 }
 
 .active_chat{ 
@@ -158,6 +172,7 @@ img{
 
 .mesgs {
   padding: 30px 15px 0 25px;
+  background: white;
   width: 60%;
   position: relative;
 }
