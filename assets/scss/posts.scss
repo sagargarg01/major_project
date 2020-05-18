@@ -1,7 +1,6 @@
 li{
     list-style: none;
     margin-top: 10px;
-
     
     .post{
         max-width: 550px;
@@ -10,6 +9,10 @@ li{
     .dropdown-toggle::after {
         content: none;
         display: none;
+    }
+
+    .small{
+        font-size: x-small !important;
     }
 
     .card-post{

@@ -6,6 +6,8 @@ li {
   li .dropdown-toggle::after {
     content: none;
     display: none; }
+  li .small {
+    font-size: x-small !important; }
   li .card-post {
     padding-bottom: 10px !important; }
     li .card-post .comments {

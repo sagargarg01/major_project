@@ -21,6 +21,11 @@
                         <div class="ml-2">
                             <div class="h5 m-0 text-capitalize"><%= post.user.name %></div>
                             <div class="h7 text-muted email"><%= post.user.email %></div>
+                                <div class="text-muted h7 mb-2 small"> <i class="far fa-clock"></i> &nbsp; 
+                                    <span id="created" class="post-date">
+                                        <%= post.createdAt %>
+                                     </span>
+                                </div>
                         </div>
                     </div>
                 </a>
@@ -44,14 +49,6 @@
 
         <!-- post body -->
         <div class="card-body card-post">
-            <small>
-                <div class="text-muted h7 mb-2"> <i class="far fa-clock"></i> &nbsp; 
-                    <span id="created" class="post-date">
-                        <%= post.createdAt %>
-                     </span>
-                </div>
-            </small>
-
             <p class="card-text">
                 <%= post.content %>
             </p>
