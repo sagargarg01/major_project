@@ -9,7 +9,8 @@ li {
   li .small {
     font-size: x-small !important; }
   li .card-post {
-    padding-bottom: 10px !important; }
+    padding-bottom: 10px !important;
+    padding-top: 10px !important; }
     li .card-post .comments {
       float: right;
       margin-right: 10px; }

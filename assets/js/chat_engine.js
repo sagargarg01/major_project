@@ -17,7 +17,7 @@ class chatEngine {
         let self = this;
 
         this.socket.on('connect', function () {
-            console.log('connection established using sockets...!');
+            // console.log('connection established using sockets...!');
 
 
             self.socket.emit('join_room', {
@@ -26,7 +26,7 @@ class chatEngine {
             });
 
             self.socket.on('user_joined', function (data) {
-                console.log('a user joined!', data);
+                // console.log('a user joined!', data);
             })
 
 
@@ -46,7 +46,7 @@ class chatEngine {
         });
 
         self.socket.on('receive_message', function (data) {
-            console.log('message received', data.message);
+            // console.log('message received', data.message);
 
             let messageType = 'other-message';
 

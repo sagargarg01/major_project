@@ -13,9 +13,9 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="mr-2">
                             <% if(post.user.avatar){ %>
-                            <img class="rounded-circle" width="45" src="<%= post.user.avatar %>" alt="">
+                            <img class="rounded-circle" width="55" height="55" src="<%= post.user.avatar %>" alt="">
                             <% } else{ %>
-                            <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
+                            <img class="rounded-circle" width="55" height="55" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                             <% } %>
                         </div>
                         <div class="ml-2">

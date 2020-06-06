@@ -4,7 +4,7 @@ background-color: #eeeeee;
 
     a:hover{
         text-decoration: none;
-    }
+    } 
 
     .user-profile{
         height: 300px;
@@ -25,6 +25,11 @@ background-color: #eeeeee;
             left: 20px;
             border: 4px solid white;
             border-radius: 100px;
+
+            .rounded-circle{
+                width: 140px;
+                height: 140px;
+            }
         }
 
         .name{

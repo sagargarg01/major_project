@@ -5,7 +5,7 @@
     <div class="comment">
         <a href="/users/profile/<%= comment.user.id %>">
             <% if(comment.user.avatar){ %>
-            <img class="rounded-circle" width="39" src="<%= comment.user.avatar %>" alt="">
+            <img class="rounded-circle" width="39" height="39" src="<%= comment.user.avatar %>" alt="">
             <% } else{ %>
             <img class="rounded-circle" width="39" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
             <% } %>

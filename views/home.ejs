@@ -17,15 +17,14 @@
     <div class="empty">
         <div class="inner card ml-3">
             <div class="cover-picture">
-                <!-- will add a cover picure upload functionality -->
             </div>
 
             <a href="/users/profile/<%= locals.user.id %>" class="locals-user-link">
                 <div class="user-pic">
                     <% if(locals.user.avatar){ %>
-                    <img class="rounded-circle mx-5" width="70" src="<%= locals.user.avatar %>" alt="">
+                    <img class="rounded-circle mx-5" width="70" height="70" src="<%= locals.user.avatar %>" alt="">
                     <% } else{ %>
-                    <img class="rounded-circle mx-5" width="60" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
+                    <img class="rounded-circle mx-5" width="70" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                     <% } %>
                 </div>
 
@@ -55,7 +54,7 @@
 
 
     </div>
-
+ 
 
     <div class="row posts">
         <div class="mx-3 posts-size">
@@ -113,7 +112,7 @@
 
                     <p class="list-group-item">
                         <% if(friends.avatar){ %>
-                        <img class="rounded-circle" width="45" src="<%= friends.avatar %>" alt="">
+                        <img class="rounded-circle" width="45" height="45" src="<%= friends.avatar %>" alt="">
                         <% } else{ %>
                         <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                         <% } %>
@@ -133,7 +132,7 @@
                     <% for(u of all_users){%>
                     <p class="list-group-item">
                         <% if(u.avatar){ %>
-                        <img class="rounded-circle" width="45" src="<%= u.avatar %>" alt="">
+                        <img class="rounded-circle" width="45" height="45" src="<%= u.avatar %>" alt="">
                         <% } else{ %>
                         <img class="rounded-circle" width="45" src="<%= assetPath('images/no_profile.jpg') %>" alt="">
                         <% } %>
