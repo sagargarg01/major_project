@@ -1,19 +1,19 @@
+
 class chatEngine {
-    constructor(chatBoxId, roomID, userEmail) {
+    constructor(chatBoxId, userEmail) {
         this.chatBox = $(`#${chatBoxId}`);
-        this.roomID = roomID;
         this.userEmail = userEmail;
 
         this.socket = io.connect('http://localhost:5000');
         // this.socket = io.connect('http://34.239.110.28:5000');
 
-        if (this.roomID && userEmail) {
-            this.connectionHandler(this.roomID);
+        if (this.userEmail) {
+            this.connectionHandler();
         }
 
     }
 
-    connectionHandler(roomID) {
+    connectionHandler() {
         let self = this;
 
         this.socket.on('connect', function () {
@@ -21,7 +21,8 @@ class chatEngine {
 
 
             self.socket.emit('join_room', {
-                chatroom: roomID
+                user_email: self.userEmail,
+                chatroom: 'codeial'
             });
 
             self.socket.on('user_joined', function (data) {
@@ -39,7 +40,7 @@ class chatEngine {
                 self.socket.emit('send_message', {
                     message: msg,
                     user_email: self.userEmail,
-                    chatroom: roomID
+                    chatroom: 'codeial'
                 });
             }
         });
