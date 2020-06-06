@@ -856,3 +856,4 @@
 [0mGET / [32m200[0m 28.404 ms - 28395[0m
 [0mPOST /comments/create [32m200[0m 65.415 ms - 845[0m
 [0mGET / [32m200[0m 28.709 ms - 30150[0m
+[0mGET /users/profile/5e970018d72cdd3adc40a67a [36m304[0m 50.144 ms - -[0m
