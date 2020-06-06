@@ -7,9 +7,14 @@
 
         <% if(locals.user){ %>
             
-            <a href="/messages/allchats/<%= locals.user.id %>" style="color: white;">messages</a>
 
         <div class="head-container">
+
+            <div class="text chaticon">
+                <a href="/messages/allchats" style="color: white;">
+                    <i class="far fa-comment-alt"></i>
+                </a>
+            </div>
 
             <div class="text">
                 <a href="/users/profile/<%= locals.user.id %>">

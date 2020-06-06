@@ -43,6 +43,7 @@ class chatEngine {
                     chatroom: 'codeial'
                 });
             }
+            $('#chat-message-input').val('');
         });
 
         self.socket.on('receive_message', function (data) {
@@ -59,7 +60,6 @@ class chatEngine {
                 $('#chat-messages-list').append(`<div class="outgoing_msg">
                 <div class="sent_msg">
                    <p>${data.message}</p>
-                   <span class="time_date"> 11:01 AM | June 9</span>
                 </div>
              </div>`)
             }
@@ -72,7 +72,6 @@ class chatEngine {
                 <div class="received_msg">
                    <div class="received_withd_msg">
                       <p>${data.message}</p>
-                      <span class="time_date"> 11:01 AM | June 100</span>
                    </div>
                 </div>
              </div>`)

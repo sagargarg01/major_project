@@ -8,7 +8,7 @@
 }
 
 img{
-   max-width:100%;
+   max-width:40px;
 }
 
 .inbox_msg{
@@ -17,9 +17,9 @@ img{
 }
 
 .inbox_people {
-  background: #f8f8f8 none repeat scroll 0 0;
+  background: #f8f8f8;
   overflow: hidden;
-  width: 40%; 
+  width: 30%; 
   border-right:1px solid #c4c4c4;
 }
 
@@ -37,12 +37,6 @@ img{
    width:40%;
 }
 
-.srch_bar {
-  display: inline-block;
-  text-align: right;
-  width: 60%;
-}
-
 .headind_srch{
    padding:10px 29px 10px 20px;
     overflow:hidden; 
@@ -54,24 +48,6 @@ img{
   font-size: 21px;
   margin: auto;
 }
-.srch_bar input{ 
-  border:1px solid #cdcdcd;
-   border-width:0 0 1px 0;
-    width:80%; 
-    padding:2px 0 4px 6px; 
-    background:none;
-}
-
-.srch_bar .input-group-addon button {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  border: medium none;
-  padding: 0;
-  color: #707070;
-  font-size: 18px;
-}
-.srch_bar .input-group-addon {
-   margin: 0 0 0 -27px;
-}
 
 .chat_ib h5{ 
   text-transform: capitalize;
@@ -80,33 +56,15 @@ img{
   margin:0 0 8px 0;
 }
 
-.chat_ib h5 span{
-   font-size:13px; 
-   float:right;
-}
-
-.chat_ib p{ 
-  font-size:14px; 
-  color:#989898; 
-  margin:auto
-}
-
-.chat_img {
-  float: left;
-  width: 11%;
-}
-
 .chat_ib {
-  float: right;
-  padding: 0 0 0 15px;
+  padding-top: 5px;
+  padding-left: 10px;
   width: 88%;
 }
 
 .chat_people{ 
   overflow:hidden; 
   padding: 12px;
-  border: 1px solid black;
-  // border-bottom: 1px solid lightgray;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -134,40 +92,26 @@ img{
 .incoming_msg{
   display: flex;
   flex-wrap: nowrap;
-}
-
-.incoming_msg_img {
-  display: inline-block;
-  width: 6%;
+  align-items: center;
 }
 
 .received_msg {
-  display: inline-block;
   padding: 0 0 0 10px;
   vertical-align: top;
-  width: 92%;
  }
 
  .received_withd_msg p {
-  background: #ebebeb none repeat scroll 0 0;
+  background: #ebebeb;
   border-radius: 3px;
   color: #646464;
   font-size: 14px;
   margin: 0;
   padding: 10px 10px 10px 12px;
-  width: 100%;
-}
-
-.time_date {
-  color: #747474;
-  display: block;
-  font-size: 12px;
-  margin: 8px 0 0;
-}
+  width: fit-content;
+ }
 
 .received_withd_msg {
-  width: auto;
-  max-width: 45%;
+ max-width: 55%;
 }
 
 .mesgs {
@@ -178,7 +122,7 @@ img{
 }
 
 .msg_history{
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
 .msg_history::-webkit-scrollbar {
@@ -193,7 +137,7 @@ img{
   margin-right: 10px;
   color:#fff;
   padding: 10px 10px 10px 12px;
-  width:100%;
+  width:fit-content;
 }
 
 .outgoing_msg{ 
@@ -203,8 +147,7 @@ img{
 }
 
 .sent_msg {
-  width: auto;
-  max-width: 46%;
+  max-width: 55%;
 }
 
 .input_msg_write input {

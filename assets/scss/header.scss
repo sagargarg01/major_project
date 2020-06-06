@@ -31,6 +31,15 @@ header{
             margin-top: 16px;
             margin-right: 10px;
             font-family: Arial, Helvetica, sans-serif;
+
+            .chaticon{
+                padding-top: 5px;
+                padding-right: 5px;
+            }
+
+            .chaticon i:hover{
+                cursor: pointer;
+            }
     
             .text{
                 margin-left: 10px;
@@ -73,8 +82,12 @@ header{
 
 @media only screen and (max-width: 400px) {
 
+    .head-container{
+        margin-top: 12px !important;
+    }
+
     .head{
-        font-size: 25px !important;
+        font-size: 20px !important;
         padding-bottom: 0px !important;
         padding-top: 14px !important;
     }
