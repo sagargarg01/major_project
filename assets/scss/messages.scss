@@ -1,5 +1,7 @@
 #layout-main{
   background-color: #eeeeee;
+  height: 75vh !important;
+  min-height: 75vh !important;
 }
 
 .container-msg{
@@ -77,7 +79,7 @@ img{
 }
 
 .inbox_chat {
-   height: 550px; 
+   height: 57vh; 
    overflow-y: scroll;
 }
 
@@ -90,6 +92,7 @@ img{
 }
 
 .incoming_msg{
+  margin-bottom: 10px;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -192,6 +195,39 @@ img{
 }
 
 .msg_history {
-  height: 516px;
+  height: 57vh;
   overflow-y: auto;
+}
+
+
+@media only screen and (max-width: 420px) {
+
+  .messaging{
+    padding-top: 15px;
+
+    .inbox_msg{
+      height: 72vh;
+    }
+  }
+
+  .msg_history {
+    height: 62vh;
+  }
+
+  .inbox_people{
+    display: none;
+  }
+
+  .mesgs{
+    width: 100%;
+    padding-top: 15px !important;
+  }
+  .sent_msg {
+    max-width: 75vw !important;
+ }
+
+  .received_withd_msg {
+    max-width: 75vw !important;
+  }
+
 }
