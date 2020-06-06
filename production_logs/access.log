@@ -808,3 +808,5 @@
 [0mGET /users/profile/5e970018d72cdd3adc40a67a [36m304[0m 31.839 ms - -[0m
 [0mGET / [36m304[0m 32.674 ms - -[0m
 [0mGET /messages/allchats/5e970018d72cdd3adc40a67a [32m200[0m 107.879 ms - 7035[0m
+[0mGET /users/profile/5e970018d72cdd3adc40a67a [32m200[0m 112.249 ms - 19911[0m
+[0mGET /messages/allchats/5e970018d72cdd3adc40a67a [32m200[0m 106.711 ms - 7035[0m
