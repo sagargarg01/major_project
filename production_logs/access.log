@@ -1051,3 +1051,73 @@
 [0mGET / [32m200[0m 44.660 ms - 30258[0m
 [0mGET / [32m200[0m 38.826 ms - 30258[0m
 [0mGET / [32m200[0m 46.645 ms - 30258[0m
+[0mGET / [36m304[0m 142.448 ms - -[0m
+[0mPOST /likes/toggle/?id=5ea80d0025d8f209f888445e [32m200[0m 30.270 ms - 357[0m
+[0mPOST /likes/toggle/?id=5ea80d0025d8f209f888445e [32m200[0m 22.182 ms - 392[0m
+[0mGET /images/like-4113758d1a.png [33m404[0m 10.576 ms - 165[0m
+[0mGET / [36m304[0m 58.701 ms - -[0m
+::1 - - [07/Jun/2020:05:37:49 +0000] "GET / HTTP/1.1" 200 3954 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:37:54 +0000] "GET /users/sign-in HTTP/1.1" 200 4722 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:37:59 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:37:59 +0000] "GET / HTTP/1.1" 200 12714 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:38:04 +0000] "POST /likes/toggle/?id=5eb2c2945168e8567806dc1c HTTP/1.1" 200 298 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:38:05 +0000] "POST /likes/toggle/?id=5eb2c2945168e8567806dc1c HTTP/1.1" 200 333 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:38:10 +0000] "POST /comments/create HTTP/1.1" 200 847 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+[0mGET / [32m200[0m 44.500 ms - 3855[0m
+[0mGET /users/sign-in [32m200[0m 7.830 ms - 4667[0m
+[0mPOST /users/create-session [36m302[0m 10.177 ms - 46[0m
+[0mGET / [32m200[0m 381.331 ms - 30506[0m
+::1 - - [07/Jun/2020:05:43:24 +0000] "GET / HTTP/1.1" 200 3954 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:43:27 +0000] "GET /users/sign-in HTTP/1.1" 200 4722 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:43:32 +0000] "POST /users/create-session HTTP/1.1" 302 46 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+::1 - - [07/Jun/2020:05:43:32 +0000] "GET / HTTP/1.1" 200 14480 "http://localhost:8000/users/sign-in" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"
+[0mGET / [32m200[0m 44.248 ms - 3855[0m
+[0mGET /users/sign-in [32m200[0m 12.445 ms - 4667[0m
+[0mPOST /users/create-session [36m302[0m 7.130 ms - 72[0m
+[0mGET /users/sign-in [32m200[0m 4.991 ms - 4917[0m
+[0mPOST /users/create-session [36m302[0m 6.005 ms - 46[0m
+[0mGET / [32m200[0m 34.263 ms - 30506[0m
+[0mGET /users/sign-out [36m302[0m 4.597 ms - 46[0m
+[0mGET / [32m200[0m 14.079 ms - 4104[0m
+[0mGET /users/sign-in [32m200[0m 4.082 ms - 4660[0m
+[0mGET /users/sign-in [32m200[0m 6.613 ms - 4596[0m
+[0mGET / [32m200[0m 17.038 ms - 3855[0m
+[0mGET /users/sign-in [32m200[0m 6.842 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 8.095 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 3.540 ms - 4596[0m
+[0mGET /users/auth/facebook [36m302[0m 4.435 ms - 0[0m
+[0mGET /users/sign-in [32m200[0m 3.774 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 4.532 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 6.372 ms - 4596[0m
+[0mGET /users/forgot_password [32m200[0m 344.377 ms - 2871[0m
+[0mGET /users/sign-in [32m200[0m 4.073 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 3.031 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 6.084 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 6.499 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 2.522 ms - 4596[0m
+[0mGET /users/sign-in [32m200[0m 6.733 ms - 4596[0m
+[0mGET /users/auth/facebook [36m302[0m 3.197 ms - 0[0m
+[0mGET /users/sign-in [32m200[0m 4.524 ms - 4596[0m
+[0mGET / [32m200[0m 19.030 ms - 3855[0m
+[0mGET / [32m200[0m 54.017 ms - 3855[0m
+[0mGET /users/sign-in [32m200[0m 6.913 ms - 4594[0m
+[0mGET /users/auth/github [31m500[0m 5.255 ms - 2074[0m
+[0mGET /users/sign-in [32m200[0m 5.422 ms - 4594[0m
+[0mGET /users/sign-in [32m200[0m 14.778 ms - 4594[0m
+[0mGET /users/auth/github [36m302[0m 5.823 ms - 0[0m
+[0mGET / [32m200[0m 50.979 ms - 3855[0m
+[0mGET /users/sign-in [32m200[0m 7.992 ms - 4594[0m
+[0mGET /users/auth/github [36m302[0m 6.509 ms - 0[0m
+[0mGET /users/auth/github/callback?code=5f2bafea5d9f51def07b [36m302[0m 1994.424 ms - 46[0m
+[0mGET / [32m200[0m 33.869 ms - 30506[0m
+[0mGET /messages/allchats [32m200[0m 7.639 ms - 3974[0m
+[0mGET /users/profile/5e970018d72cdd3adc40a67a [32m200[0m 26.894 ms - 20055[0m
+[0mGET /users/profile/5e96fcae0af9f95c64e3387d [32m200[0m 29.009 ms - 19692[0m
+[0mGET /users/profile/5e96fcae0af9f95c64e3387d [32m200[0m 58.691 ms - 19692[0m
+[0mGET /users/profile/5e96fcae0af9f95c64e3387d [32m200[0m 60.782 ms - 19692[0m
+[0mGET /users/sign-out [36m302[0m 8.818 ms - 46[0m
+[0mGET / [32m200[0m 18.448 ms - 4104[0m
+[0mGET /users/sign-in [32m200[0m 6.103 ms - 4594[0m
+[0mGET /users/auth/google [36m302[0m 4.377 ms - 0[0m
+[0mGET /users/auth/google/callback?code=4%2F0gFcRQYYicXuD8AqSqwIA2G4zZ3m7-EQ3-k81vA8XTEwOyDQunPoL-b4G95uHqi9-w75S5FK6bITC49y-Enx8EE&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent [36m302[0m 469.107 ms - 46[0m
+[0mGET / [32m200[0m 29.136 ms - 30506[0m

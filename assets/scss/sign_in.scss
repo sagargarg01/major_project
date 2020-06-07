@@ -93,12 +93,12 @@
                     background-color: #4285F4;
                 }
     
-                .facebook{
+                .github{
                     border-radius: 40px;
                     background-color: white;
-                    padding: 15px 10 15px 15;
+                    padding: 15px 15px 15px 15;
 
-                    .logo-facebook{
+                    .logo-github{
                         background-color: white;
                         margin-top: -4px;;
                         margin-left: -8px;
@@ -108,8 +108,8 @@
                     }
                 }
 
-                .facebook:hover{
-                    background-color: #4267B2;
+                .github:hover{
+                    background-color: #191717;
                 }
             }
 
@@ -170,6 +170,10 @@
    
    .google{
         margin: 0px !important;
+        padding-right: 25px !important;
+    }
+
+    .github{
         padding-right: 25px !important;
     }
 
