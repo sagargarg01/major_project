@@ -2,12 +2,12 @@ const passport = require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
 const crypto = require('crypto');
 const User = require('../models/user');
-
+const env = require('./environment');
 
 passport.use(new GitHubStrategy({
-   clientID: "8d43b304a437d6ce9e77",
-   clientSecret: "779efed5281d33aa62678318468205c84fbb1416",
-   callbackURL: "http://localhost:8000/users/auth/github/callback"
+   clientID: env.github_client_id,
+   clientSecret: env.github_client_secret,
+   callbackURL: env.github_call_back_url
  },
  function(accessToken, refreshToken, profile, cb) {
    User.findOne({email: profile.emails[0].value}).exec(function(err, user){
