@@ -32,7 +32,11 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref:'ChatBox'
         }
-    ]
+    ],
+    verifyUser: {
+        type: Boolean,
+        required: true
+    }
 }, {
     timestamps: true
 });

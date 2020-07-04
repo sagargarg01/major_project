@@ -13,6 +13,20 @@
 
 
 <% if(locals.user){ %>
+
+
+    <% if(locals.user.verifyUser === false){ %>
+
+        <div style="padding: 20%;">
+           <h1>jake pehle email verify krke aa </h1>
+           <form action="/users/verify_account" method="post">
+           <input type="number" name="OTP" placeholder="enter the OTP here">
+            <input type="submit" value="submit">
+        </form>
+        </div>
+
+        <%} else { %>
+
 <div id="home-container" class="container-fluid">
     <div class="empty">
         <div class="inner card ml-3">
@@ -148,7 +162,7 @@
     </section>
 
 </div>
-
+<% } %>
 
 <% }else{ %>
 
@@ -191,6 +205,8 @@
         let newComment = new PostComments(postid)
     })
 </script>
+
+<script src="<%= assetPath('js/enterOTP.js') %>"></script>
 
 <!-- //set dates -->
 

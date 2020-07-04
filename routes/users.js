@@ -4,6 +4,8 @@ const passport = require('passport');
 const usersControllers = require('../controllers/users_controller');
 const friendsController = require('../controllers/friendship_controller');
 
+router.post('/verify_account',passport.checkAuthentication,usersControllers.verify_account);
+
 router.get('/profile/:id', passport.checkAuthentication,usersControllers.profile);
 router.post('/update/:id', passport.checkAuthentication,usersControllers.update);
 router.get('/createfriendship/:id', passport.checkAuthentication,friendsController.createFriensdhip);

@@ -3,7 +3,10 @@ const Post = require('../models/post');
 const fs = require('fs');
 const path = require('path');
 const resetPasswordMailer = require('../mailers/reset_password_mailer');
+const verify_accountMailer = require('../mailers/verify_user_mailer');
 const Password = require('../models/reset_password');
+const verify_User = require('../models/verifyUser');
+const e = require('express');
 
 // keep it same as before
 module.exports.profile = async function (req, res) {
@@ -93,7 +96,7 @@ module.exports.update = async function (req, res) {
 module.exports.signUp = function (req, res) {
 
     if (req.isAuthenticated()) {
-        return res.redirect('/users/profile');
+        return res.redirect('/');
     }
 
     return res.render('user_sign_up', {
@@ -106,7 +109,7 @@ module.exports.signUp = function (req, res) {
 module.exports.signIn = function (req, res) {
 
     if (req.isAuthenticated()) {
-        return res.redirect('/users/profile/req.params.id');
+        return res.redirect('/');
     }
 
     return res.render('user_sign_in', {
@@ -129,6 +132,9 @@ module.exports.create = function (req, res) {
                 if (err) { console.log('error in creating user while signing up'); return; }
 
                 req.flash('success', 'User Created Successfully')
+
+                verify_accountMailer.sendOTP(req.body.email);
+
                 return res.redirect('/users/sign-in');
             });
         }
@@ -139,6 +145,33 @@ module.exports.create = function (req, res) {
         }
 
     });
+}
+
+module.exports.verify_account = async function(req,res){
+
+    try {
+        let validOTP = await verify_User.findOne({OTP: req.body.OTP}).populate('user')
+
+        if(validOTP){
+            if(req.user.id === validOTP.user.id){
+                await User.findByIdAndUpdate(req.user.id ,{
+                    verifyUser: true
+                });
+                req.flash('success', 'Email Verified !');
+            }
+            else{
+                req.flash('error', 'Invalid OTP');
+            }
+        }
+        else{
+            req.flash('error', 'Invalid OTP');
+        }
+    
+        res.redirect('back');
+    } catch (err) {
+        console.log('Error', err);
+        return;
+    }
 }
 
 
@@ -193,7 +226,6 @@ module.exports.send_mail = async function (req, res) {
 
     try {
 
-        console.log()
         if (req.xhr) {
 
             resetPasswordMailer.passwordResetMail(req.body.email);
